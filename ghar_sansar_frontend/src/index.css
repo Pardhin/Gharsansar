@@ -5,18 +5,23 @@
 @tailwind utilities;
 
 @layer base {
+  * {
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif !important;
+  }
+
   html {
     scroll-behavior: smooth;
     @apply antialiased;
+    font-family: 'Poppins', sans-serif !important;
   }
   
   body {
     @apply bg-gray-50 text-gray-900 antialiased;
-    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif !important;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Poppins', sans-serif;
+  h1, h2, h3, h4, h5, h6, p, span, a, button, input, textarea, select, label {
+    font-family: 'Poppins', sans-serif !important;
     letter-spacing: -0.01em;
   }
 

@@ -62,7 +62,7 @@ export const GharSansarLogo: React.FC<GharSansarLogoProps> = ({
       />
       <div className="flex flex-col text-left">
         <span
-          className={`font-serif text-lg sm:text-xl font-bold tracking-[0.16em] leading-tight uppercase transition-colors ${
+          className={`font-poppins text-lg sm:text-xl font-bold tracking-[0.16em] leading-tight uppercase transition-colors ${
             isLight ? "text-white" : "text-gray-900"
           }`}
         >

@@ -77,7 +77,7 @@ const Footer: React.FC = () => {
                 aria-label="Pinterest"
                 className="w-8 h-8 rounded-full border border-gray-300 text-gray-600 hover:text-white hover:border-[#C86B4C] hover:bg-[#C86B4C] flex items-center justify-center transition-all duration-200"
               >
-                <span className="font-serif font-bold text-xs">P</span>
+                <span className="font-poppins font-bold text-xs">P</span>
               </a>
             </div>
           </div>

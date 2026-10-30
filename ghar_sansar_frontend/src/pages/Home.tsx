@@ -309,7 +309,7 @@ const Home: React.FC = () => {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-[62px] xl:text-[66px] leading-[1.08] font-normal text-white mb-5 tracking-tight"
+              className="font-poppins text-4xl sm:text-5xl md:text-6xl lg:text-[62px] xl:text-[66px] leading-[1.08] font-normal text-white mb-5 tracking-tight"
             >
               {heroSlides[currentSlide].titleLine1}
               <br />
@@ -358,7 +358,7 @@ const Home: React.FC = () => {
           <div className="flex items-end justify-between pt-8">
             {/* Slider Controls */}
             <div className="flex items-center space-x-4 text-white/90">
-              <div className="flex items-center space-x-2.5 text-xs font-serif font-bold">
+              <div className="flex items-center space-x-2.5 text-xs font-poppins font-bold">
                 {heroSlides.map((_, idx) => (
                   <button
                     key={idx}
@@ -439,7 +439,7 @@ const Home: React.FC = () => {
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
-                <span className="font-serif text-xs sm:text-[13px] md:text-[13.5px] font-medium text-gray-900 mt-2.5 group-hover:text-[#C86B4C] transition-colors leading-tight">
+                <span className="font-poppins text-xs sm:text-[13px] md:text-[13.5px] font-medium text-gray-900 mt-2.5 group-hover:text-[#C86B4C] transition-colors leading-tight">
                   {cat.title}
                 </span>
               </Link>
@@ -460,7 +460,7 @@ const Home: React.FC = () => {
               <span className="text-[11px] font-semibold tracking-[0.24em] text-[#C86B4C] uppercase block mb-2">
                 COMPLETE INTERIOR SOLUTIONS
               </span>
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-[42px] text-gray-950 leading-[1.12] font-normal mb-4 tracking-tight">
+              <h2 className="font-poppins text-3xl sm:text-4xl lg:text-[42px] text-gray-950 leading-[1.12] font-normal mb-4 tracking-tight">
                 From Inspiration
                 <br />
                 to Installation
@@ -489,10 +489,10 @@ const Home: React.FC = () => {
                       className="w-full h-full object-cover group-hover:scale-104 transition-transform duration-500"
                     />
                   </div>
-                  <span className="font-serif text-2xl font-bold text-[#C86B4C] leading-none mb-1.5">
+                  <span className="font-poppins text-2xl font-bold text-[#C86B4C] leading-none mb-1.5">
                     {step.number}
                   </span>
-                  <h3 className="font-serif text-sm sm:text-base font-semibold text-gray-900 mb-1 leading-snug">
+                  <h3 className="font-poppins text-sm sm:text-base font-semibold text-gray-900 mb-1 leading-snug">
                     {step.title}
                   </h3>
                   <p className="text-xs text-gray-600 leading-relaxed font-normal">
@@ -524,7 +524,7 @@ const Home: React.FC = () => {
               <span className="text-[11px] font-semibold tracking-[0.24em] text-[#C86B4C] uppercase block mb-1">
                 INTERIOR DESIGN SERVICES
               </span>
-              <h2 className="font-serif text-3xl sm:text-4xl text-gray-950 font-normal tracking-tight">
+              <h2 className="font-poppins text-3xl sm:text-4xl text-gray-950 font-normal tracking-tight">
                 Our Interior Works
               </h2>
               <p className="text-xs text-gray-600 mt-1 font-normal">
@@ -599,7 +599,7 @@ const Home: React.FC = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
                   <div className="absolute inset-x-0 bottom-0 p-3 sm:p-3.5 flex items-center justify-between">
-                    <h4 className="font-serif text-xs sm:text-[13px] md:text-sm font-medium text-white leading-tight">
+                    <h4 className="font-poppins text-xs sm:text-[13px] md:text-sm font-medium text-white leading-tight">
                       {work.title}
                     </h4>
                     <ArrowRight className="w-3.5 h-3.5 text-white/80 group-hover:text-white group-hover:translate-x-1 transition-all shrink-0 ml-1" />
@@ -623,7 +623,7 @@ const Home: React.FC = () => {
               <span className="text-[11px] font-semibold tracking-[0.24em] text-[#C86B4C] uppercase block mb-1">
                 FEATURED CATEGORIES
               </span>
-              <h2 className="font-serif text-3xl sm:text-4xl text-gray-950 font-normal tracking-tight">
+              <h2 className="font-poppins text-3xl sm:text-4xl text-gray-950 font-normal tracking-tight">
                 Curated for Modern Homes
               </h2>
             </div>
@@ -669,7 +669,7 @@ const Home: React.FC = () => {
 
                 {/* Caption Below */}
                 <div>
-                  <h3 className="font-serif text-sm font-semibold text-gray-900 group-hover:text-[#C86B4C] transition-colors leading-tight">
+                  <h3 className="font-poppins text-sm font-semibold text-gray-900 group-hover:text-[#C86B4C] transition-colors leading-tight">
                     {cat.title}
                   </h3>
                   <p className="text-[11px] text-gray-500 font-normal mt-0.5">
@@ -695,7 +695,7 @@ const Home: React.FC = () => {
                 <span className="text-[11px] font-semibold tracking-[0.25em] text-[#E09D82] uppercase mb-2">
                   BOOK A FREE
                 </span>
-                <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-normal tracking-tight text-white mb-3.5 leading-tight uppercase">
+                <h2 className="font-poppins text-2xl sm:text-3xl lg:text-4xl font-normal tracking-tight text-white mb-3.5 leading-tight uppercase">
                   INTERIOR CONSULTATION
                 </h2>
                 <p className="text-xs sm:text-sm text-stone-200/90 font-light leading-relaxed mb-6 max-w-sm">
@@ -784,7 +784,7 @@ const Home: React.FC = () => {
               <span className="text-[11px] font-semibold tracking-[0.24em] text-[#C86B4C] uppercase block mb-1">
                 INSPIRATION GALLERY
               </span>
-              <h2 className="font-serif text-3xl sm:text-4xl text-gray-950 font-normal tracking-tight">
+              <h2 className="font-poppins text-3xl sm:text-4xl text-gray-950 font-normal tracking-tight">
                 Homes by Ghar Sansar
               </h2>
               <p className="text-xs text-gray-600 mt-1 font-normal">
@@ -865,7 +865,7 @@ const Home: React.FC = () => {
               <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#C57053] block mb-1">
                 Expert Guidance
               </span>
-              <h3 className="font-serif text-2xl sm:text-3xl font-normal text-gray-900 mb-2">
+              <h3 className="font-poppins text-2xl sm:text-3xl font-normal text-gray-900 mb-2">
                 Book Your Free Consultation
               </h3>
               <p className="text-xs text-gray-600 mb-6 leading-relaxed">
@@ -1043,7 +1043,7 @@ const Home: React.FC = () => {
               </div>
               <div className="p-5 text-white flex items-center justify-between">
                 <div>
-                  <h4 className="font-serif text-base font-medium">
+                  <h4 className="font-poppins text-base font-medium">
                     {galleryItems[activeGalleryIndex].title}
                   </h4>
                   <p className="text-xs text-stone-400">
