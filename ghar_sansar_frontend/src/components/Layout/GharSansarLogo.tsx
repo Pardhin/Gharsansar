@@ -8,7 +8,7 @@ interface GharSansarLogoProps {
 }
 
 export const GharSansarIcon: React.FC<{ className?: string; color?: string }> = ({
-  className = "w-7 h-7 sm:w-8 sm:h-8 shrink-0",
+  className = "w-6 h-6 sm:w-7 sm:h-7 shrink-0",
   color = "#C26847",
 }) => (
   <svg
@@ -57,12 +57,12 @@ export const GharSansarLogo: React.FC<GharSansarLogoProps> = ({
       className={`inline-flex items-center gap-2.5 sm:gap-3 group transition-opacity hover:opacity-95 ${className}`}
     >
       <GharSansarIcon
-        className="w-8 h-8 sm:w-9 sm:h-9 shrink-0 transition-transform group-hover:scale-105"
+        className="w-7 h-7 sm:w-7.5 sm:h-7.5 shrink-0 transition-transform group-hover:scale-105"
         color="#C26847"
       />
       <div className="flex flex-col text-left">
         <span
-          className={`font-poppins text-lg sm:text-xl font-bold tracking-[0.16em] leading-tight uppercase transition-colors ${
+          className={`font-poppins text-base sm:text-[17px] font-bold tracking-[0.16em] leading-tight uppercase transition-colors ${
             isLight ? "text-white" : "text-gray-900"
           }`}
         >
@@ -70,7 +70,7 @@ export const GharSansarLogo: React.FC<GharSansarLogoProps> = ({
         </span>
         {showSubtitle && (
           <span
-            className={`text-[8.5px] sm:text-[9.5px] tracking-[0.24em] font-medium uppercase mt-0.5 transition-colors ${
+            className={`text-[8px] sm:text-[8.5px] tracking-[0.24em] font-medium uppercase mt-0.5 transition-colors ${
               isLight ? "text-white/75" : "text-gray-600"
             }`}
           >

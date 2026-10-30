@@ -153,7 +153,7 @@ const Header: React.FC = () => {
               : "bg-[#FAF7F2]/90 backdrop-blur-xs border-b border-[#E8E2D8]/60"
           }`}
         >
-          <div className="w-full max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-14 h-18 sm:h-20 flex items-center justify-between">
+          <div className="w-full max-w-[1600px] mx-auto px-5 sm:px-8 lg:px-12 h-14 sm:h-16 flex items-center justify-between">
             {/* 1. Left: Brand Logo */}
             <div className="flex items-center shrink-0">
               <GharSansarLogo variant={isHomeTop ? "light" : "dark"} />
@@ -161,7 +161,7 @@ const Header: React.FC = () => {
 
             {/* 2. Center: Refined Editorial Navigation */}
             <nav
-              className="hidden lg:flex items-center space-x-7 xl:space-x-9 text-xs font-medium tracking-[0.1em] uppercase font-sans"
+              className="hidden lg:flex items-center space-x-6 xl:space-x-8 text-[11.5px] font-medium tracking-[0.12em] uppercase font-sans"
               role="navigation"
             >
               {navLinks.map((link) => {
@@ -170,7 +170,7 @@ const Header: React.FC = () => {
                   <Link
                     key={link.path}
                     to={link.path}
-                    className={`relative py-1 transition-colors duration-200 ${
+                    className={`relative py-0.5 transition-colors duration-200 ${
                       active
                         ? isHomeTop
                           ? "text-white font-semibold"
@@ -182,7 +182,7 @@ const Header: React.FC = () => {
                   >
                     <span>{link.label}</span>
                     {active && (
-                      <span className="absolute -bottom-1.5 left-0 right-0 h-[2px] bg-[#C86B4C] rounded-full" />
+                      <span className="absolute -bottom-1 left-0 right-0 h-[2px] bg-[#C86B4C] rounded-full" />
                     )}
                   </Link>
                 );
@@ -190,7 +190,7 @@ const Header: React.FC = () => {
             </nav>
 
             {/* 3. Right: Refined Search & Action Icons */}
-            <div className="flex items-center space-x-3 sm:space-x-4 shrink-0">
+            <div className="flex items-center space-x-2.5 sm:space-x-3.5 shrink-0">
               {/* Compact Search Bar */}
               <div className="relative hidden md:block">
                 <form
@@ -199,7 +199,7 @@ const Header: React.FC = () => {
                   className="flex items-center relative"
                 >
                   <div
-                    className={`flex items-center w-40 lg:w-48 h-8 rounded-full px-3 transition-all ${
+                    className={`flex items-center w-38 lg:w-44 h-[32px] sm:h-[34px] rounded-full px-3 transition-all ${
                       isHomeTop
                         ? "bg-white/85 hover:bg-white text-gray-800 shadow-sm border border-white/30"
                         : "bg-white text-gray-800 border border-[#E2DDD5] shadow-2xs"

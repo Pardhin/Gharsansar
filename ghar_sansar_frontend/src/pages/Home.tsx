@@ -293,7 +293,7 @@ const Home: React.FC = () => {
         </div>
 
         {/* Content Container */}
-        <div className="relative z-10 w-full max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-14 pt-28 pb-12 lg:pt-36 lg:pb-14 flex flex-col justify-between min-h-[85vh] lg:min-h-[92vh]">
+        <div className="relative z-10 w-full max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-14 pt-20 pb-10 sm:pt-22 lg:pt-24 lg:pb-12 flex flex-col justify-between min-h-[85vh] lg:min-h-[92vh]">
           {/* Main Editorial Text Area */}
           <div className="my-auto max-w-xl">
             {/* Eyebrow */}
