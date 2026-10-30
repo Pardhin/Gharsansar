@@ -68,36 +68,43 @@ const Home: React.FC = () => {
   const quickCategories = [
     {
       title: "Wallpaper Rolls",
+      count: "120+ Designs",
       image: "/images/design/cat_wallpaper.jpg",
       link: "/interior-design?category=Wallpaper%20Rolls",
     },
     {
       title: "Wall Art Effects",
+      count: "85+ Designs",
       image: "/images/design/cat_wallart.jpg",
       link: "/interior-design?category=Wall%20Art%20Effect",
     },
     {
       title: "Vinyl Flooring",
+      count: "90+ Designs",
       image: "/images/design/cat_vinyl.jpg",
       link: "/interior-design?category=Vinyl%20Flooring",
     },
     {
       title: "3D Wallpapers",
+      count: "100+ Designs",
       image: "/images/design/cat_3d.jpg",
       link: "/interior-design?category=3d%20Wallpapers",
     },
     {
       title: "Vertical Garden",
+      count: "60+ Designs",
       image: "/images/design/cat_garden.jpg",
       link: "/interior-design?category=Natural%20Vertical%20Garden",
     },
     {
       title: "Interior Decor",
+      count: "250+ Products",
       image: "/images/design/cat_decor.jpg",
       link: "/products",
     },
     {
       title: "Return Gifts",
+      count: "150+ Gifts",
       image: "/images/design/cat_gifts.jpg",
       link: "/return-gifts",
     },
@@ -424,23 +431,26 @@ const Home: React.FC = () => {
           2. CATEGORY STRIP (7 Cards Horizontal Row directly below hero)
           ========================================================================= */}
       <section className="w-full bg-[#FAF7F2] pt-6 pb-2 sm:pt-8 sm:pb-3">
-        <div className="w-full max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-14">
-          <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-7 gap-3 sm:gap-4 lg:gap-5">
+        <div className="w-full max-w-[1600px] mx-auto px-5 sm:px-8 lg:px-12">
+          <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-7 gap-3 sm:gap-3.5 lg:gap-4">
             {quickCategories.map((cat) => (
               <Link
                 key={cat.title}
                 to={cat.link}
-                className="group flex flex-col items-center cursor-pointer text-center"
+                className="group flex flex-col items-center cursor-pointer text-center bg-white/75 hover:bg-white rounded-2xl p-2.5 sm:p-3 border border-[#E8E2D8]/80 hover:border-[#C86B4C]/50 shadow-xs hover:shadow-md transition-all duration-300"
               >
-                <div className="w-full aspect-[1.35/1] rounded-xl sm:rounded-2xl overflow-hidden bg-stone-200/60 shadow-xs border border-[#E8E2D8]/80 group-hover:border-[#C86B4C]/60 group-hover:shadow-md transition-all duration-300">
+                <div className="w-full aspect-[1.1/1] rounded-xl overflow-hidden bg-stone-100 shadow-2xs">
                   <img
                     src={cat.image}
                     alt={cat.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover group-hover:scale-106 transition-transform duration-500"
                   />
                 </div>
-                <span className="font-poppins text-xs sm:text-[13px] md:text-[13.5px] font-medium text-gray-900 mt-2.5 group-hover:text-[#C86B4C] transition-colors leading-tight">
+                <span className="font-poppins text-xs sm:text-[13px] font-semibold text-gray-900 mt-2.5 group-hover:text-[#C86B4C] transition-colors leading-tight">
                   {cat.title}
+                </span>
+                <span className="font-poppins text-[10.5px] text-gray-500 font-normal mt-0.5">
+                  {cat.count}
                 </span>
               </Link>
             ))}
@@ -451,8 +461,8 @@ const Home: React.FC = () => {
       {/* =========================================================================
           3. COMPLETE INTERIOR SOLUTIONS ("From Inspiration to Installation")
           ========================================================================= */}
-      <section className="w-full bg-[#FAF7F2] pt-5 pb-12 sm:pt-6 sm:pb-16 border-b border-[#E8E2D8]">
-        <div className="w-full max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-14">
+      <section className="w-full bg-[#FAF7F2] pt-4 pb-12 sm:pt-6 sm:pb-16 border-b border-[#E8E2D8]">
+        <div className="w-full max-w-[1600px] mx-auto px-5 sm:px-8 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-14 items-start">
             
             {/* Left Column (Span 4) */}
@@ -482,8 +492,8 @@ const Home: React.FC = () => {
             <div className="lg:col-span-8 grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-7 items-start relative">
               {processSteps.map((step, idx) => (
                 <div key={step.number} className="relative flex flex-col group">
-                  {/* Step Image */}
-                  <div className="w-full aspect-[1.32/1] rounded-xl sm:rounded-2xl overflow-hidden bg-stone-100 shadow-xs border border-[#E8E2D8]/80 mb-3">
+                  {/* Step Image (1800x1344 High Definition Photography) */}
+                  <div className="w-full aspect-[1.25/1] rounded-2xl overflow-hidden bg-stone-100 shadow-xs border border-[#E8E2D8]/80 mb-3">
                     <img
                       src={step.image}
                       alt={step.title}
@@ -508,8 +518,8 @@ const Home: React.FC = () => {
 
                   {/* Connecting horizontal arrow between steps on desktop, aligned with image center */}
                   {idx < 2 && (
-                    <div className="hidden md:flex absolute -right-3 lg:-right-4 top-[30%] -translate-y-1/2 z-10 text-stone-400">
-                      <ArrowRight className="w-3.5 h-3.5 text-stone-400" />
+                    <div className="hidden md:flex absolute -right-3 lg:-right-4 top-[32%] -translate-y-1/2 z-10 text-stone-400">
+                      <ArrowRight className="w-4 h-4 text-stone-400" />
                     </div>
                   )}
                 </div>
