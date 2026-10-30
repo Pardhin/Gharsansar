@@ -574,32 +574,8 @@ const Home: React.FC = () => {
             </div>
           </div>
 
-          {/* Featured Project Showcase (Full Width Grand Banner) */}
-          <div className="w-full relative aspect-[2.2/1] sm:aspect-[2.6/1] lg:aspect-[3/1] min-h-[240px] sm:min-h-[300px] max-h-[440px] rounded-xl sm:rounded-2xl overflow-hidden shadow-xs border border-[#E8E2D8] group bg-black">
-            <img
-              src="/images/design/dining_exact_upscaled.jpg"
-              alt="Featured Project: Bespoke Dining Room"
-              className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-700"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-            
-            {/* Bottom Play Button: Watch Our Work */}
-            <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6">
-              <button
-                onClick={() => setVideoModalOpen(true)}
-                className="bg-black/60 hover:bg-black/80 text-white px-4 py-2.5 rounded-full flex items-center space-x-3 transition-all backdrop-blur-md border border-white/20 cursor-pointer"
-              >
-                <div className="w-6 h-6 rounded-full bg-[#C86B4C] flex items-center justify-center text-white shrink-0">
-                  <Play className="w-3 h-3 fill-current ml-0.5" />
-                </div>
-                <span className="text-xs font-medium tracking-wide">
-                  Watch Our Work
-                </span>
-              </button>
-            </div>
-          </div>
           {/* Bottom Section: 5 Category Cards (from Second Image) */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 lg:gap-5 mt-6 sm:mt-7 pt-6 border-t border-[#E8E2D8]/70">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 lg:gap-5">
             {featuredCategories.map((cat) => (
               <Link
                 key={cat.title}
