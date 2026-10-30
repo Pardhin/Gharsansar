@@ -66,12 +66,13 @@ export default {
         },
       },
       fontFamily: {
-        sans: ['Jost', 'Montserrat', 'Inter', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', '"Helvetica Neue"', 'sans-serif'],
+        sans: ['Poppins', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', '"Helvetica Neue"', 'sans-serif'],
+        poppins: ['Poppins', 'sans-serif'],
         serif: ['"Playfair Display"', '"Cormorant Garamond"', 'Georgia', 'serif'],
         display: ['"Playfair Display"', '"Cormorant Garamond"', 'Georgia', 'serif'],
         heading: ['"Playfair Display"', '"Cormorant Garamond"', 'Georgia', 'serif'],
-        body: ['Jost', 'Montserrat', 'Inter', '-apple-system', 'sans-serif'],
-        ui: ['Jost', 'Montserrat', 'Inter', 'sans-serif'],
+        body: ['Poppins', '-apple-system', 'sans-serif'],
+        ui: ['Poppins', 'sans-serif'],
         mono: ['JetBrains Mono', 'Fira Code', 'monospace'],
       },
       fontSize: {
