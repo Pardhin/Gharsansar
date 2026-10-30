@@ -275,7 +275,7 @@ const Home: React.FC = () => {
       {/* =========================================================================
           1. HERO SECTION (Matching User Design Mockup Exactly)
           ========================================================================= */}
-      <section className="relative w-full h-[76vh] min-h-[540px] max-h-[720px] flex items-center overflow-hidden">
+      <section className="relative w-full h-[60vh] sm:h-[62vh] min-h-[420px] max-h-[540px] flex items-center overflow-hidden">
         {/* Background Image: Clean, High-Res Living Room matching User Design */}
         {heroSlides.map((slide, idx) => (
           <div
@@ -295,8 +295,8 @@ const Home: React.FC = () => {
           </div>
         ))}
 
-        {/* Content Container aligned with exact mockup layout */}
-        <div className="relative z-10 w-full max-w-[1520px] 2xl:max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-14 xl:px-16 pt-16 sm:pt-20">
+        {/* Content Container aligned with exact mockup layout with guaranteed bottom clearance */}
+        <div className="relative z-10 w-full max-w-[1520px] 2xl:max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-14 xl:px-16 pt-12 sm:pt-14 pb-16 sm:pb-18">
           <div className="max-w-2xl text-left">
             {/* Kicker tag in Terracotta matching design */}
             <motion.div
@@ -304,9 +304,9 @@ const Home: React.FC = () => {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="mb-3.5"
+              className="mb-2 sm:mb-2.5"
             >
-              <span className="text-[11px] sm:text-xs font-semibold tracking-[0.3em] text-[#C86B4C] uppercase block font-sans">
+              <span className="text-[10.5px] sm:text-xs font-semibold tracking-[0.28em] text-[#C86B4C] uppercase block font-sans">
                 {heroSlides[currentSlide].kicker}
               </span>
             </motion.div>
@@ -317,7 +317,7 @@ const Home: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-[66px] leading-[1.08] font-normal text-white mb-5 tracking-tight drop-shadow-sm"
+              className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-[48px] xl:text-[52px] leading-[1.08] font-normal text-white mb-3 sm:mb-3.5 tracking-tight drop-shadow-sm"
             >
               {heroSlides[currentSlide].titleLine1}
               <br />
@@ -338,7 +338,7 @@ const Home: React.FC = () => {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="text-xs sm:text-sm md:text-[15px] text-white/85 font-light leading-relaxed max-w-lg mb-7"
+              className="text-xs sm:text-[13px] md:text-sm text-white/85 font-light leading-relaxed max-w-lg mb-4 sm:mb-5 line-clamp-2 sm:line-clamp-none"
             >
               {heroSlides[currentSlide].description}
             </motion.p>
@@ -349,12 +349,12 @@ const Home: React.FC = () => {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.3 }}
-              className="flex flex-wrap items-center gap-3.5 sm:gap-4"
+              className="flex flex-wrap items-center gap-3 sm:gap-3.5"
             >
               {/* Primary Pill Button: Explore Our Designs (#C57053) */}
               <Link
                 to={heroSlides[currentSlide].primaryLink}
-                className="bg-[#C57053] hover:bg-[#B36044] text-white px-7 sm:px-8 py-3.5 rounded-full font-semibold tracking-wider text-xs uppercase flex items-center space-x-2 transition-all shadow-md hover:shadow-lg hover:scale-102 active:scale-98"
+                className="bg-[#C57053] hover:bg-[#B36044] text-white px-6 sm:px-7 py-2.5 sm:py-3 rounded-full font-semibold tracking-wider text-xs uppercase flex items-center space-x-2 transition-all shadow-md hover:shadow-lg hover:scale-102 active:scale-98"
               >
                 <span>{heroSlides[currentSlide].primaryCta}</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -363,7 +363,7 @@ const Home: React.FC = () => {
               {/* Secondary Outline Pill Button: Shop Now */}
               <Link
                 to={heroSlides[currentSlide].secondaryLink}
-                className="border border-white/80 hover:border-white hover:bg-white/10 text-white px-7 sm:px-8 py-3.5 rounded-full font-semibold tracking-wider text-xs uppercase transition-all backdrop-blur-xs hover:scale-102 active:scale-98"
+                className="border border-white/80 hover:border-white hover:bg-white/10 text-white px-6 sm:px-7 py-2.5 sm:py-3 rounded-full font-semibold tracking-wider text-xs uppercase transition-all backdrop-blur-xs hover:scale-102 active:scale-98"
               >
                 <span>{heroSlides[currentSlide].secondaryCta}</span>
               </Link>
@@ -372,7 +372,7 @@ const Home: React.FC = () => {
         </div>
 
         {/* Bottom Hero Bar: Slider Controls on Left & Vertical Branding on Right */}
-        <div className="absolute inset-x-0 bottom-7 z-20 w-full max-w-[1520px] 2xl:max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-14 xl:px-16 flex items-end justify-between pointer-events-none">
+        <div className="absolute inset-x-0 bottom-3.5 sm:bottom-4.5 z-20 w-full max-w-[1520px] 2xl:max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-14 xl:px-16 flex items-end justify-between pointer-events-none">
           {/* Bottom Left: Pagination (01 02 03), Line Indicator & Arrows */}
           <div className="flex items-center space-x-4 sm:space-x-5 pointer-events-auto">
             {/* Number indicators */}
@@ -437,9 +437,9 @@ const Home: React.FC = () => {
       {/* =========================================================================
           2. QUICK CATEGORIES RIBBON (Immediately below Hero in #F5F0EA)
           ========================================================================= */}
-      <section className="w-full bg-[#F5F0EA] py-8 sm:py-10 border-b border-[#E2D8C9]">
+      <section className="w-full bg-[#F5F0EA] py-3.5 sm:py-4.5 lg:py-5 border-b border-[#E2D8C9]">
         <div className="w-full max-w-[1520px] 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10">
-          <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-7 gap-3.5 sm:gap-4 lg:gap-5">
+          <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-7 gap-2.5 sm:gap-3.5 lg:gap-4">
             {quickCategories.map((cat) => (
               <Link
                 key={cat.title}
@@ -447,7 +447,7 @@ const Home: React.FC = () => {
                 className="group flex flex-col items-center cursor-pointer text-center"
               >
                 {/* Rounded image container with clean, upscaled photography */}
-                <div className="w-full aspect-[4/3] rounded-xl sm:rounded-2xl overflow-hidden shadow-2xs border border-[#E2D8C9] bg-white group-hover:shadow-md transition-all duration-300">
+                <div className="w-full aspect-[1.48/1] rounded-xl sm:rounded-2xl overflow-hidden shadow-2xs border border-[#E2D8C9] bg-white group-hover:shadow-md transition-all duration-300">
                   <img
                     src={cat.image}
                     alt={cat.title}
@@ -455,7 +455,7 @@ const Home: React.FC = () => {
                   />
                 </div>
                 {/* Title in elegant Serif font matching design */}
-                <span className="font-serif text-xs sm:text-sm font-semibold text-gray-900 mt-2.5 group-hover:text-[#C86B4C] transition-colors leading-tight">
+                <span className="font-serif text-[11px] sm:text-xs lg:text-[13px] font-semibold text-gray-900 mt-1.5 sm:mt-2 group-hover:text-[#C86B4C] transition-colors leading-tight">
                   {cat.title}
                 </span>
               </Link>
