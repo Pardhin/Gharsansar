@@ -423,7 +423,7 @@ const Home: React.FC = () => {
       {/* =========================================================================
           2. CATEGORY STRIP (7 Cards Horizontal Row directly below hero)
           ========================================================================= */}
-      <section className="w-full bg-[#FAF7F2] py-8 sm:py-10 border-b border-[#E8E2D8]">
+      <section className="w-full bg-[#FAF7F2] pt-6 pb-2 sm:pt-8 sm:pb-3">
         <div className="w-full max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-14">
           <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-7 gap-3 sm:gap-4 lg:gap-5">
             {quickCategories.map((cat) => (
@@ -451,21 +451,21 @@ const Home: React.FC = () => {
       {/* =========================================================================
           3. COMPLETE INTERIOR SOLUTIONS ("From Inspiration to Installation")
           ========================================================================= */}
-      <section className="w-full bg-[#FAF7F2] py-14 sm:py-18 border-b border-[#E8E2D8]">
+      <section className="w-full bg-[#FAF7F2] pt-5 pb-12 sm:pt-6 sm:pb-16 border-b border-[#E8E2D8]">
         <div className="w-full max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-14">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-14 items-start">
             
             {/* Left Column (Span 4) */}
-            <div className="lg:col-span-4 flex flex-col">
+            <div className="lg:col-span-4 flex flex-col justify-start pt-1">
               <span className="text-[11px] font-semibold tracking-[0.24em] text-[#C86B4C] uppercase block mb-2">
                 COMPLETE INTERIOR SOLUTIONS
               </span>
-              <h2 className="font-poppins text-3xl sm:text-4xl lg:text-[42px] text-gray-950 leading-[1.12] font-normal mb-4 tracking-tight">
+              <h2 className="font-poppins text-3xl sm:text-4xl lg:text-[42px] text-gray-950 leading-[1.12] font-normal mb-3.5 tracking-tight">
                 From Inspiration
                 <br />
                 to Installation
               </h2>
-              <p className="text-xs sm:text-sm text-gray-650 leading-relaxed mb-7 font-normal max-w-sm">
+              <p className="text-xs sm:text-sm text-gray-650 leading-relaxed mb-6 font-normal max-w-sm">
                 We make your home transformation journey simple, seamless and
                 stress-free.
               </p>
@@ -473,36 +473,43 @@ const Home: React.FC = () => {
                 to="/interior-design"
                 className="bg-[#C86B4C] hover:bg-[#B35E42] text-white px-6 py-2.5 rounded-full text-xs font-semibold tracking-wider uppercase inline-flex items-center gap-2 self-start transition-all shadow-xs hover:shadow-md"
               >
-                <span>How It Works</span>
+                <span>HOW IT WORKS</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>
 
             {/* Right Column: 3 Process Steps (Span 8) */}
-            <div className="lg:col-span-8 grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-start relative">
+            <div className="lg:col-span-8 grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-7 items-start relative">
               {processSteps.map((step, idx) => (
                 <div key={step.number} className="relative flex flex-col group">
-                  <div className="w-full aspect-[1.4/1] rounded-xl sm:rounded-2xl overflow-hidden bg-stone-100 shadow-xs border border-[#E8E2D8] mb-3.5">
+                  {/* Step Image */}
+                  <div className="w-full aspect-[1.32/1] rounded-xl sm:rounded-2xl overflow-hidden bg-stone-100 shadow-xs border border-[#E8E2D8]/80 mb-3">
                     <img
                       src={step.image}
                       alt={step.title}
                       className="w-full h-full object-cover group-hover:scale-104 transition-transform duration-500"
                     />
                   </div>
-                  <span className="font-poppins text-2xl font-bold text-[#C86B4C] leading-none mb-1.5">
+
+                  {/* Step Number in Terracotta */}
+                  <span className="font-poppins text-xl sm:text-2xl font-bold text-[#C86B4C] leading-none mb-1.5 block">
                     {step.number}
                   </span>
+
+                  {/* Step Title */}
                   <h3 className="font-poppins text-sm sm:text-base font-semibold text-gray-900 mb-1 leading-snug">
                     {step.title}
                   </h3>
+
+                  {/* Step Description */}
                   <p className="text-xs text-gray-600 leading-relaxed font-normal">
                     {step.description}
                   </p>
 
-                  {/* Connecting horizontal arrow between steps on desktop */}
+                  {/* Connecting horizontal arrow between steps on desktop, aligned with image center */}
                   {idx < 2 && (
-                    <div className="hidden md:flex absolute -right-3.5 lg:-right-4.5 top-1/4 -translate-y-1/2 z-10 text-stone-400">
-                      <ArrowRight className="w-4 h-4" />
+                    <div className="hidden md:flex absolute -right-3 lg:-right-4 top-[30%] -translate-y-1/2 z-10 text-stone-400">
+                      <ArrowRight className="w-3.5 h-3.5 text-stone-400" />
                     </div>
                   )}
                 </div>
