@@ -574,10 +574,10 @@ const Home: React.FC = () => {
             </div>
           </div>
 
-          {/* Grid: Left Big Showcase (Span 5) + Right 3x2 Grid (Span 7) */}
+          {/* Grid: Left Big Showcase (Span 5) + Right Top 3 Cards (Span 7) */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-6 items-stretch">
             {/* Left Grand Showcase (Span 5) */}
-            <div className="lg:col-span-5 relative rounded-xl sm:rounded-2xl overflow-hidden shadow-xs border border-[#E8E2D8] group min-h-[420px] lg:min-h-[480px] bg-black">
+            <div className="lg:col-span-5 relative rounded-xl sm:rounded-2xl overflow-hidden shadow-xs border border-[#E8E2D8] group min-h-[220px] lg:min-h-0 bg-black">
               <img
                 src="/images/design/dining_exact_upscaled.jpg"
                 alt="Featured Project: Bespoke Dining Room"
@@ -601,9 +601,9 @@ const Home: React.FC = () => {
               </div>
             </div>
 
-            {/* Right 3x2 Grid of 6 Cards (Span 7) */}
-            <div className="lg:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-3.5 sm:gap-4.5">
-              {interiorWorks.map((work) => (
+            {/* Right Row of 3 Cards (Span 7) */}
+            <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-3.5 sm:gap-4.5">
+              {interiorWorks.slice(0, 3).map((work) => (
                 <Link
                   key={work.title}
                   to={work.link}
@@ -625,46 +625,9 @@ const Home: React.FC = () => {
               ))}
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* =========================================================================
-          5. FEATURED CATEGORIES ("Curated for Modern Homes")
-          ========================================================================= */}
-      <section className="w-full bg-[#FAF7F2] py-14 sm:py-18 border-b border-[#E8E2D8]">
-        <div className="w-full max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-14">
-          
-          {/* Header */}
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-7 pb-4 border-b border-[#E8E2D8]/70">
-            <div>
-              <span className="text-[11px] font-semibold tracking-[0.24em] text-[#C86B4C] uppercase block mb-1">
-                FEATURED CATEGORIES
-              </span>
-              <h2 className="font-poppins text-3xl sm:text-4xl text-gray-950 font-normal tracking-tight">
-                Curated for Modern Homes
-              </h2>
-            </div>
-
-            <div className="flex items-center space-x-2">
-              <button
-                onClick={() => navigate("/products")}
-                aria-label="Previous category"
-                className="w-7 h-7 rounded-full border border-gray-300 hover:border-gray-900 text-gray-700 flex items-center justify-center transition-colors cursor-pointer"
-              >
-                <ArrowLeft className="w-3.5 h-3.5" />
-              </button>
-              <button
-                onClick={() => navigate("/products")}
-                aria-label="Next category"
-                className="w-7 h-7 rounded-full border border-gray-300 hover:border-gray-900 text-gray-700 flex items-center justify-center transition-colors cursor-pointer"
-              >
-                <ArrowRight className="w-3.5 h-3.5" />
-              </button>
-            </div>
-          </div>
-
-          {/* 5 Cards Row */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 lg:gap-5">
+          {/* Bottom Section: 5 Category Cards (from Second Image) */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 lg:gap-5 mt-6 sm:mt-7 pt-6 border-t border-[#E8E2D8]/70">
             {featuredCategories.map((cat) => (
               <Link
                 key={cat.title}
@@ -698,7 +661,6 @@ const Home: React.FC = () => {
           </div>
         </div>
       </section>
-
       {/* =========================================================================
           6. INTERIOR CONSULTATION (Rich Terracotta-Brown Banner)
           ========================================================================= */}
