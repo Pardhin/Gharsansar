@@ -29,26 +29,26 @@ const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="bg-[#F5F0EA] text-gray-800 border-t border-[#E2D8C9] font-sans">
-      <div className="w-full max-w-[1680px] mx-auto px-6 sm:px-8 lg:px-12 pt-16 sm:pt-20 pb-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-8 pb-12 border-b border-[#E8E2D5]">
+    <footer className="bg-[#181513] text-[#E8E2D8] border-t border-[#2A2420] font-sans">
+      <div className="w-full max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-14 pt-16 sm:pt-20 pb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-12 border-b border-[#2A2420]">
           
-          {/* Column 1: Brand & Socials (Span 3) */}
-          <div className="lg:col-span-3 flex flex-col">
+          {/* Column 1: Brand & Socials (Span 4) */}
+          <div className="lg:col-span-4 flex flex-col pr-0 lg:pr-6">
             <div className="mb-4">
-              <GharSansarLogo variant="dark" />
+              <GharSansarLogo variant="light" />
             </div>
-            <p className="text-gray-600 text-xs sm:text-[13px] leading-relaxed mb-6 font-normal max-w-sm">
-              Transforming homes with premium products and professional interior design services.
+            <p className="text-[#A8A095] text-xs sm:text-[13px] leading-relaxed mb-6 font-normal max-w-sm">
+              Transforming homes with bespoke collections, award-winning interior design, and turnkey execution across Andhra Pradesh &amp; Telangana.
             </p>
-            {/* Social Icons matching design: Circular outline buttons */}
+            {/* Social Icons: Minimalist circular outlines */}
             <div className="flex items-center space-x-2.5">
               <a
                 href="https://www.instagram.com/gharsansar_shop/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
-                className="w-8 h-8 rounded-full border border-gray-400/60 hover:border-[#C26847] bg-transparent text-gray-700 hover:text-white hover:bg-[#C26847] flex items-center justify-center transition-all duration-200"
+                className="w-8 h-8 rounded-full border border-stone-700/60 text-[#A8A095] hover:text-white hover:border-[#C57053] hover:bg-[#C57053] flex items-center justify-center transition-all duration-200"
               >
                 <Instagram className="w-3.5 h-3.5" />
               </a>
@@ -57,7 +57,7 @@ const Footer: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
-                className="w-8 h-8 rounded-full border border-gray-400/60 hover:border-[#C26847] bg-transparent text-gray-700 hover:text-white hover:bg-[#C26847] flex items-center justify-center transition-all duration-200"
+                className="w-8 h-8 rounded-full border border-stone-700/60 text-[#A8A095] hover:text-white hover:border-[#C57053] hover:bg-[#C57053] flex items-center justify-center transition-all duration-200"
               >
                 <Facebook className="w-3.5 h-3.5" />
               </a>
@@ -66,17 +66,16 @@ const Footer: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="YouTube"
-                className="w-8 h-8 rounded-full border border-gray-400/60 hover:border-[#C26847] bg-transparent text-gray-700 hover:text-white hover:bg-[#C26847] flex items-center justify-center transition-all duration-200"
+                className="w-8 h-8 rounded-full border border-stone-700/60 text-[#A8A095] hover:text-white hover:border-[#C57053] hover:bg-[#C57053] flex items-center justify-center transition-all duration-200"
               >
                 <Youtube className="w-3.5 h-3.5" />
               </a>
-              {/* Pinterest */}
               <a
                 href="https://pinterest.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Pinterest"
-                className="w-8 h-8 rounded-full border border-gray-400/60 hover:border-[#C26847] bg-transparent text-gray-700 hover:text-white hover:bg-[#C26847] flex items-center justify-center transition-all duration-200"
+                className="w-8 h-8 rounded-full border border-stone-700/60 text-[#A8A095] hover:text-white hover:border-[#C57053] hover:bg-[#C57053] flex items-center justify-center transition-all duration-200"
               >
                 <span className="font-serif font-bold text-xs">P</span>
               </a>
@@ -85,37 +84,37 @@ const Footer: React.FC = () => {
 
           {/* Column 2: EXPLORE (Span 2) */}
           <div className="lg:col-span-2">
-            <h4 className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-[#C26847] mb-4">
-              EXPLORE
+            <h4 className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#C57053] mb-4">
+              Explore
             </h4>
-            <ul className="space-y-2.5 text-xs sm:text-[13px] text-gray-700 font-medium">
+            <ul className="space-y-2.5 text-xs sm:text-[13px] text-[#A8A095] font-normal">
               <li>
-                <Link to="/" className="hover:text-[#C26847] transition-colors">
+                <Link to="/" className="hover:text-white transition-colors">
                   Home
                 </Link>
               </li>
               <li>
-                <Link to="/interior-design" className="hover:text-[#C26847] transition-colors">
+                <Link to="/interior-design" className="hover:text-white transition-colors">
                   Interior Design
                 </Link>
               </li>
               <li>
-                <Link to="/products" className="hover:text-[#C26847] transition-colors">
+                <Link to="/products" className="hover:text-white transition-colors">
                   Products
                 </Link>
               </li>
               <li>
-                <Link to="/return-gifts" className="hover:text-[#C26847] transition-colors">
+                <Link to="/return-gifts" className="hover:text-white transition-colors">
                   Festive Gifts
                 </Link>
               </li>
               <li>
-                <Link to="/services" className="hover:text-[#C26847] transition-colors">
+                <Link to="/services" className="hover:text-white transition-colors">
                   Services
                 </Link>
               </li>
               <li>
-                <Link to="/blog" className="hover:text-[#C26847] transition-colors">
+                <Link to="/blog" className="hover:text-white transition-colors">
                   Blog
                 </Link>
               </li>
@@ -124,122 +123,122 @@ const Footer: React.FC = () => {
 
           {/* Column 3: SUPPORT (Span 2) */}
           <div className="lg:col-span-2">
-            <h4 className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-[#C26847] mb-4">
-              SUPPORT
+            <h4 className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#C57053] mb-4">
+              Support
             </h4>
-            <ul className="space-y-2.5 text-xs sm:text-[13px] text-gray-700 font-medium">
+            <ul className="space-y-2.5 text-xs sm:text-[13px] text-[#A8A095] font-normal">
               <li>
-                <Link to="/my-orders" className="hover:text-[#C26847] transition-colors">
+                <Link to="/my-orders" className="hover:text-white transition-colors">
                   Track Order
                 </Link>
               </li>
               <li>
-                <Link to="/privacy-policy" className="hover:text-[#C26847] transition-colors">
+                <Link to="/privacy-policy" className="hover:text-white transition-colors">
                   Returns &amp; Refunds
                 </Link>
               </li>
               <li>
-                <Link to="/privacy-policy" className="hover:text-[#C26847] transition-colors">
+                <Link to="/privacy-policy" className="hover:text-white transition-colors">
                   Shipping Policy
                 </Link>
               </li>
               <li>
-                <Link to="/privacy-policy" className="hover:text-[#C26847] transition-colors">
+                <Link to="/privacy-policy" className="hover:text-white transition-colors">
                   Terms &amp; Conditions
                 </Link>
               </li>
               <li>
-                <Link to="/privacy-policy" className="hover:text-[#C26847] transition-colors">
+                <Link to="/privacy-policy" className="hover:text-white transition-colors">
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link to="/services" className="hover:text-[#C26847] transition-colors">
+                <Link to="/services" className="hover:text-white transition-colors">
                   Contact Us
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Column 4: CONTACT US (Span 3) */}
-          <div className="lg:col-span-3">
-            <h4 className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-[#C26847] mb-4">
-              CONTACT US
+          {/* Column 4: CONTACT US (Span 4) */}
+          <div className="lg:col-span-4">
+            <h4 className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#C57053] mb-4">
+              Contact Us
             </h4>
-            <ul className="space-y-3 text-xs sm:text-[13px] text-gray-700">
+            <ul className="space-y-3 text-xs sm:text-[13px] text-[#A8A095]">
               <li className="flex items-start space-x-2.5">
-                <MapPin className="w-4 h-4 text-[#C26847] shrink-0 mt-0.5" />
-                <span className="leading-snug">
+                <MapPin className="w-4 h-4 text-[#C57053] shrink-0 mt-0.5" />
+                <span className="leading-relaxed">
                   D.No. 27-3-68, Near Buckingham Post Office, Rajalakshmi School,
                   Governorpet-520002, Vijayawada, Andhra Pradesh
                 </span>
               </li>
               <li className="flex items-center space-x-2.5">
-                <Phone className="w-4 h-4 text-[#C26847] shrink-0" />
+                <Phone className="w-4 h-4 text-[#C57053] shrink-0" />
                 <a
                   href="tel:+919701990090"
-                  className="hover:text-[#C26847] transition-colors font-medium"
+                  className="hover:text-white transition-colors font-medium text-[#E8E2D8]"
                 >
                   +91 9701990090
                 </a>
               </li>
               <li className="flex items-center space-x-2.5">
-                <Mail className="w-4 h-4 text-[#C26847] shrink-0" />
+                <Mail className="w-4 h-4 text-[#C57053] shrink-0" />
                 <a
                   href="mailto:gharsansarvij@gmail.com"
-                  className="hover:text-[#C26847] transition-colors"
+                  className="hover:text-white transition-colors text-[#E8E2D8]"
                 >
                   gharsansarvij@gmail.com
                 </a>
               </li>
             </ul>
-          </div>
 
-          {/* Column 5: Join Our Newsletter (Span 2) */}
-          <div className="lg:col-span-2">
-            <h4 className="text-sm font-serif font-bold text-gray-900 mb-2">
-              Join Our Newsletter
-            </h4>
-            <p className="text-xs text-gray-600 mb-4 leading-relaxed">
-              Get latest updates, offers and interior inspiration.
-            </p>
-            <form onSubmit={handleSubscribe} className="relative flex items-center">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="w-full bg-white border border-[#E4DDD3] rounded-full pl-4 pr-11 py-2.5 text-xs text-gray-800 placeholder:text-gray-400 focus:outline-none focus:border-[#C26847] focus:ring-1 focus:ring-[#C26847] transition-all"
-                required
-              />
-              <button
-                type="submit"
-                aria-label="Subscribe to newsletter"
-                className="absolute right-1 w-8 h-8 rounded-full bg-[#C26847] hover:bg-[#AA5637] text-white flex items-center justify-center transition-colors shadow-xs"
-              >
-                {subscribed ? (
-                  <CheckCircle className="w-4 h-4 text-white" />
-                ) : (
-                  <ArrowRight className="w-4 h-4 text-white" />
-                )}
-              </button>
-            </form>
+            {/* Newsletter Subscription */}
+            <div className="mt-6 pt-5 border-t border-[#2A2420]">
+              <h5 className="text-xs font-serif font-medium text-white mb-1.5">
+                Join Our Newsletter
+              </h5>
+              <p className="text-[11px] text-[#A8A095] mb-3 leading-relaxed">
+                Get latest design updates, seasonal offers, and interior inspiration.
+              </p>
+              <form onSubmit={handleSubscribe} className="relative flex items-center">
+                <input
+                  type="email"
+                  placeholder="Enter your email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="w-full bg-[#221E1B] border border-[#332D28] rounded-full pl-4 pr-11 py-2.5 text-xs text-white placeholder:text-stone-500 focus:outline-none focus:border-[#C57053] transition-all"
+                  required
+                />
+                <button
+                  type="submit"
+                  aria-label="Subscribe to newsletter"
+                  className="absolute right-1 w-8 h-8 rounded-full bg-[#C57053] hover:bg-[#B35E42] text-white flex items-center justify-center transition-colors shadow-xs"
+                >
+                  {subscribed ? (
+                    <CheckCircle className="w-3.5 h-3.5 text-white" />
+                  ) : (
+                    <ArrowRight className="w-3.5 h-3.5 text-white" />
+                  )}
+                </button>
+              </form>
+            </div>
           </div>
         </div>
 
-        {/* Bottom Bar matching design */}
-        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between text-[11px] sm:text-xs text-gray-600 gap-3">
+        {/* Bottom Sub-bar */}
+        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between text-[11px] sm:text-xs text-[#7A7268] gap-3">
           <p>© 2026 Ghar Sansar. All rights reserved.</p>
-          <div className="flex items-center space-x-4 sm:space-x-6 text-gray-600">
-            <Link to="/privacy-policy" className="hover:text-[#C26847] transition-colors">
+          <div className="flex items-center space-x-4 sm:space-x-6">
+            <Link to="/privacy-policy" className="hover:text-white transition-colors">
               Privacy Policy
             </Link>
-            <span>|</span>
-            <Link to="/privacy-policy" className="hover:text-[#C26847] transition-colors">
+            <span>•</span>
+            <Link to="/privacy-policy" className="hover:text-white transition-colors">
               Terms &amp; Conditions
             </Link>
-            <span>|</span>
-            <Link to="/privacy-policy" className="hover:text-[#C26847] transition-colors">
+            <span>•</span>
+            <Link to="/privacy-policy" className="hover:text-white transition-colors">
               Shipping Policy
             </Link>
           </div>

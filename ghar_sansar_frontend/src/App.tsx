@@ -106,7 +106,7 @@ const AppLayout = () => {
 
   // 3. Regular customer view
   return (
-    <div className="min-h-screen bg-[#F7F6F0]">
+    <div className="min-h-screen bg-[#FAF7F2]">
       <Header />
       <main className={isHomePage ? "" : "pt-20 sm:pt-24"}>
         <Routes>

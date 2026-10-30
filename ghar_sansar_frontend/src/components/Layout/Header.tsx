@@ -126,9 +126,6 @@ const Header: React.FC = () => {
     setShowSuggestions(false);
   };
 
-  const isHomePage = location.pathname === "/";
-  const isTransparent = isHomePage && !isScrolled;
-
   const navLinks = [
     { path: "/", label: "Home" },
     { path: "/interior-design", label: "Interior Design" },
@@ -147,20 +144,20 @@ const Header: React.FC = () => {
       >
         <div
           className={`w-full transition-all duration-300 ${
-            isTransparent
-              ? "bg-transparent border-b border-transparent"
-              : "bg-[#F5F0EA]/95 backdrop-blur-md shadow-xs border-b border-[#E2D8C9]"
+            isScrolled
+              ? "bg-[#FAF7F2]/95 backdrop-blur-md shadow-xs border-b border-[#E8E2D8]"
+              : "bg-[#FAF7F2]/90 backdrop-blur-xs border-b border-[#E8E2D8]/60"
           }`}
         >
-          <div className="w-full max-w-[1680px] mx-auto px-6 sm:px-8 lg:px-12 h-18 sm:h-20 flex items-center justify-between">
-            {/* 1. Left: Brand Logo matching design */}
+          <div className="w-full max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-14 h-18 sm:h-20 flex items-center justify-between">
+            {/* 1. Left: Brand Logo */}
             <div className="flex items-center shrink-0">
-              <GharSansarLogo variant={isTransparent ? "light" : "dark"} />
+              <GharSansarLogo variant="dark" />
             </div>
 
-            {/* 2. Center: Desktop Navigation Links */}
+            {/* 2. Center: Refined Editorial Navigation */}
             <nav
-              className="hidden lg:flex items-center space-x-6 xl:space-x-8 text-xs xl:text-[13px] font-medium"
+              className="hidden lg:flex items-center space-x-7 xl:space-x-9 text-xs font-medium tracking-[0.1em] uppercase font-sans"
               role="navigation"
             >
               {navLinks.map((link) => {
@@ -170,54 +167,44 @@ const Header: React.FC = () => {
                     key={link.path}
                     to={link.path}
                     className={`relative py-1 transition-colors duration-200 ${
-                      isTransparent
-                        ? active
-                          ? "text-white font-semibold"
-                          : "text-white/80 hover:text-white"
-                        : active
-                          ? "text-gray-900 font-semibold"
-                          : "text-gray-650 hover:text-gray-900"
+                      active
+                        ? "text-gray-950 font-semibold"
+                        : "text-gray-600 hover:text-[#C57053]"
                     }`}
                   >
                     <span>{link.label}</span>
                     {active && (
-                      <span className="absolute -bottom-1 left-0 right-0 h-[2px] bg-[#C26847] rounded-full" />
+                      <span className="absolute -bottom-1.5 left-0 right-0 h-[1.5px] bg-[#C57053] rounded-full" />
                     )}
                   </Link>
                 );
               })}
             </nav>
 
-            {/* 3. Right: Search bar & User/Wishlist/Cart/Menu icons matching design */}
-            <div className="flex items-center space-x-2.5 sm:space-x-3.5 shrink-0">
-              {/* Pill Search Bar - visible on tablet/desktop */}
+            {/* 3. Right: Refined Search & Action Icons */}
+            <div className="flex items-center space-x-3 sm:space-x-4 shrink-0">
+              {/* Compact Search Bar */}
               <div className="relative hidden md:block">
                 <form
                   ref={desktopSearchRef}
                   onSubmit={onSearchSubmit}
                   className="flex items-center relative"
                 >
-                  <div
-                    className={`flex items-center w-40 lg:w-48 xl:w-56 h-9 rounded-full px-3.5 transition-all ${
-                      isTransparent
-                        ? "bg-[#FAF7F2]/90 hover:bg-[#FAF7F2] text-gray-800 shadow-xs"
-                        : "bg-[#F3ECE1] hover:bg-white border border-[#E2D8C9] text-gray-800 shadow-xs"
-                    }`}
-                  >
+                  <div className="flex items-center w-36 lg:w-44 h-8 rounded-full px-3 transition-all bg-white/70 hover:bg-white border border-[#E2DDD5] text-gray-800 shadow-2xs">
                     <input
                       type="search"
-                      placeholder="Search products..."
+                      placeholder="Search..."
                       value={searchTerm}
                       onChange={(e) => updateSearchTerm(e.target.value)}
                       onFocus={() => {
                         if (suggestions.length > 0) setShowSuggestions(true);
                       }}
-                      className="w-full bg-transparent text-xs font-normal text-gray-800 placeholder:text-gray-500 focus:outline-none"
+                      className="w-full bg-transparent text-xs font-normal text-gray-800 placeholder:text-gray-400 focus:outline-none"
                     />
                     <button
                       type="submit"
                       aria-label="Submit search"
-                      className="text-gray-600 hover:text-gray-900 ml-1.5 cursor-pointer"
+                      className="text-gray-500 hover:text-[#C57053] ml-1 cursor-pointer transition-colors"
                     >
                       <Search className="w-3.5 h-3.5" />
                     </button>
@@ -225,12 +212,12 @@ const Header: React.FC = () => {
 
                   {/* Suggestions dropdown */}
                   {showSuggestions && suggestions.length > 0 && (
-                    <div className="absolute top-full right-0 mt-2 w-60 bg-white/95 backdrop-blur-md border border-[#E8E2D5] rounded-xl shadow-xl py-2 z-50 overflow-hidden">
+                    <div className="absolute top-full right-0 mt-2 w-56 bg-white/95 backdrop-blur-md border border-[#E8E2D5] rounded-xl shadow-xl py-2 z-50 overflow-hidden">
                       {suggestions.map((s, idx) => (
                         <button
                           key={idx}
                           type="button"
-                          className="w-full text-left px-4 py-2 text-xs font-medium text-gray-700 hover:bg-[#FAF7F2] hover:text-[#C26847] transition-colors cursor-pointer"
+                          className="w-full text-left px-4 py-1.5 text-xs font-medium text-gray-700 hover:bg-[#FAF7F2] hover:text-[#C57053] transition-colors cursor-pointer"
                           onClick={() => onSuggestionSelect(s)}
                         >
                           {s}
@@ -247,13 +234,9 @@ const Header: React.FC = () => {
                   <button
                     onClick={() => setUserMenuOpen((v) => !v)}
                     aria-label="User profile"
-                    className={`w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center transition-colors ${
-                      isTransparent
-                        ? "text-white hover:text-white/80"
-                        : "text-gray-800 hover:text-gray-950"
-                    }`}
+                    className="w-8 h-8 rounded-full flex items-center justify-center text-gray-700 hover:text-[#C57053] transition-colors cursor-pointer"
                   >
-                    <User className="w-4 h-4 sm:w-[18px] sm:h-[18px]" />
+                    <User className="w-4 h-4" />
                   </button>
                   {isUserMenuOpen && (
                     <div className="absolute right-0 mt-2 w-52 bg-white border border-[#E8E2D5] rounded-xl shadow-xl p-2 z-50">
@@ -267,7 +250,7 @@ const Header: React.FC = () => {
                       </div>
                       <Link
                         to="/profile"
-                        className="block px-3 py-1.5 text-xs font-medium text-gray-700 hover:bg-[#FAF7F2] hover:text-[#C26847] rounded-lg transition-colors"
+                        className="block px-3 py-1.5 text-xs font-medium text-gray-700 hover:bg-[#FAF7F2] hover:text-[#C57053] rounded-lg transition-colors"
                         onClick={() => setUserMenuOpen(false)}
                       >
                         Profile
@@ -277,7 +260,7 @@ const Header: React.FC = () => {
                           logout();
                           navigate("/");
                         }}
-                        className="w-full flex items-center px-3 py-1.5 text-xs font-medium text-red-600 hover:bg-red-50 rounded-lg transition-colors mt-1"
+                        className="w-full flex items-center px-3 py-1.5 text-xs font-medium text-red-600 hover:bg-red-50 rounded-lg transition-colors mt-1 cursor-pointer"
                       >
                         <LogOut className="mr-2 w-3.5 h-3.5" />
                         Logout
@@ -289,13 +272,9 @@ const Header: React.FC = () => {
                 <Link
                   to="/login"
                   aria-label="Sign In"
-                  className={`w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center transition-colors ${
-                    isTransparent
-                      ? "text-white hover:text-white/80"
-                      : "text-gray-800 hover:text-gray-950"
-                  }`}
+                  className="w-8 h-8 rounded-full flex items-center justify-center text-gray-700 hover:text-[#C57053] transition-colors"
                 >
-                  <User className="w-4 h-4 sm:w-[18px] sm:h-[18px]" />
+                  <User className="w-4 h-4" />
                 </Link>
               )}
 
@@ -303,135 +282,109 @@ const Header: React.FC = () => {
               <Link
                 to="/products"
                 aria-label="Wishlist"
-                className={`w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center transition-colors relative ${
-                  isTransparent
-                    ? "text-white hover:text-white/80"
-                    : "text-gray-800 hover:text-gray-950"
-                }`}
+                className="w-8 h-8 rounded-full flex items-center justify-center text-gray-700 hover:text-[#C57053] transition-colors relative"
               >
-                <Heart className="w-4 h-4 sm:w-[18px] sm:h-[18px]" />
+                <Heart className="w-4 h-4" />
                 {wishlist.length > 0 && (
-                  <span className="absolute 1 -top-0.5 -right-0.5 w-4 h-4 rounded-full bg-[#C26847] text-white text-[9px] font-bold flex items-center justify-center">
+                  <span className="absolute top-0.5 right-0.5 w-3.5 h-3.5 rounded-full bg-[#C57053] text-white text-[8.5px] font-bold flex items-center justify-center">
                     {wishlist.length}
                   </span>
                 )}
               </Link>
 
-              {/* Cart Icon with Red/Orange Badge matching design */}
+              {/* Cart Icon with Small Terracotta Badge */}
               <Link
                 to="/cart"
                 aria-label="Shopping Cart"
-                className={`w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center transition-colors relative ${
-                  isTransparent
-                    ? "text-white hover:text-white/80"
-                    : "text-gray-800 hover:text-gray-950"
-                }`}
+                className="w-8 h-8 rounded-full flex items-center justify-center text-gray-700 hover:text-[#C57053] transition-colors relative"
               >
-                <ShoppingCart className="w-4 h-4 sm:w-[18px] sm:h-[18px]" />
-                {/* Red/Orange badge with total items count matching design */}
-                <span className="absolute -top-0.5 -right-0.5 w-4 h-4 rounded-full bg-[#D45936] text-white text-[9.5px] font-bold flex items-center justify-center shadow-xs">
+                <ShoppingCart className="w-4 h-4" />
+                <span className="absolute top-0.5 right-0.5 w-3.5 h-3.5 rounded-full bg-[#C57053] text-white text-[8.5px] font-bold flex items-center justify-center shadow-xs">
                   {totalItems || 0}
                 </span>
               </Link>
 
-              {/* Hamburger Menu Icon */}
+              {/* Mobile Hamburger Menu Toggle */}
               <button
                 aria-label="Toggle navigation menu"
                 onClick={() => setMenuOpen((v) => !v)}
-                className={`w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center transition-colors ${
-                  isTransparent
-                    ? "text-white hover:text-white/80"
-                    : "text-gray-800 hover:text-gray-950"
-                }`}
+                className="lg:hidden w-8 h-8 rounded-full flex items-center justify-center text-gray-700 hover:text-[#C57053] transition-colors"
               >
-                {isMenuOpen ? (
-                  <X className="w-5 h-5" />
-                ) : (
-                  <Menu className="w-5 h-5" />
-                )}
+                {isMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
               </button>
             </div>
           </div>
         </div>
       </header>
 
-      {/* Mobile / Full Drawer Menu */}
+      {/* Mobile Navigation Drawer */}
       <AnimatePresence>
         {isMenuOpen && (
-          <>
+          <div className="fixed inset-0 z-40 lg:hidden">
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setMenuOpen(false)}
-              className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[998]"
+              className="fixed inset-0 bg-black/40 backdrop-blur-xs"
             />
             <motion.div
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
-              transition={{ type: "spring", damping: 25, stiffness: 220 }}
-              className="fixed right-0 top-0 bottom-0 w-[82%] max-w-sm bg-[#FAF7F2] shadow-2xl border-l border-[#E8E2D5] z-[999] p-6 flex flex-col justify-between"
+              transition={{ type: "tween", duration: 0.3 }}
+              className="fixed top-0 right-0 bottom-0 w-72 bg-[#FAF7F2] p-6 shadow-2xl flex flex-col justify-between border-l border-[#E8E2D8] z-50"
             >
               <div>
-                <div className="flex items-center justify-between mb-8 pb-4 border-b border-[#E8E2D5]">
+                <div className="flex items-center justify-between pb-6 border-b border-[#E8E2D8] mb-6">
                   <GharSansarLogo variant="dark" />
                   <button
                     onClick={() => setMenuOpen(false)}
                     aria-label="Close menu"
-                    className="p-1.5 text-gray-500 hover:text-gray-900 rounded-full hover:bg-gray-200/50"
+                    className="p-1 text-gray-500 hover:text-gray-900"
                   >
-                    <X size={20} />
+                    <X className="w-5 h-5" />
                   </button>
                 </div>
 
-                {/* Mobile Search input */}
-                <form onSubmit={onSearchSubmit} className="mb-6 relative">
-                  <input
-                    type="search"
-                    placeholder="Search products..."
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                    className="w-full bg-white border border-[#E4DDD3] rounded-full pl-4 pr-10 py-2.5 text-xs text-gray-800 placeholder:text-gray-400 focus:outline-none focus:border-[#C26847]"
-                  />
-                  <button
-                    type="submit"
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500"
-                  >
-                    <Search className="w-4 h-4" />
-                  </button>
-                </form>
-
-                <nav className="flex flex-col space-y-3.5">
+                <nav className="space-y-4">
                   {navLinks.map((link) => (
                     <Link
                       key={link.path}
                       to={link.path}
                       onClick={() => setMenuOpen(false)}
-                      className={`text-sm font-serif font-semibold py-1.5 border-b border-gray-200/40 flex items-center justify-between transition-colors ${
+                      className={`block py-2 text-sm uppercase tracking-wider font-medium transition-colors ${
                         isActive(link.path)
-                          ? "text-[#C26847]"
-                          : "text-gray-800 hover:text-[#C26847]"
+                          ? "text-[#C57053] font-bold"
+                          : "text-gray-700 hover:text-[#C57053]"
                       }`}
                     >
-                      <span>{link.label}</span>
-                      {isActive(link.path) && (
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#C26847]" />
-                      )}
+                      {link.label}
                     </Link>
                   ))}
                 </nav>
               </div>
 
-              <div className="pt-6 border-t border-[#E8E2D5] text-xs text-gray-500">
-                <p className="font-serif font-bold text-gray-800 text-sm mb-1">
-                  Ghar Sansar Vijayawada
-                </p>
-                <p>+91 9701990090</p>
-                <p>gharsansarvij@gmail.com</p>
+              <div className="pt-6 border-t border-[#E8E2D8] space-y-3">
+                <Link
+                  to="/products"
+                  onClick={() => setMenuOpen(false)}
+                  className="flex items-center justify-between text-xs text-gray-700 hover:text-[#C57053]"
+                >
+                  <span>Wishlist</span>
+                  <span className="font-bold">{wishlist.length}</span>
+                </Link>
+                <Link
+                  to="/cart"
+                  onClick={() => setMenuOpen(false)}
+                  className="flex items-center justify-between text-xs text-gray-700 hover:text-[#C57053]"
+                >
+                  <span>Shopping Cart</span>
+                  <span className="font-bold">{totalItems || 0}</span>
+                </Link>
               </div>
             </motion.div>
-          </>
+          </div>
         )}
       </AnimatePresence>
     </>
