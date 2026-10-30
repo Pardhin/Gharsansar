@@ -574,58 +574,30 @@ const Home: React.FC = () => {
             </div>
           </div>
 
-          {/* Grid: Left Big Showcase (Span 5) + Right Top 3 Cards (Span 7) */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-6 items-stretch">
-            {/* Left Grand Showcase (Span 5) */}
-            <div className="lg:col-span-5 relative rounded-xl sm:rounded-2xl overflow-hidden shadow-xs border border-[#E8E2D8] group min-h-[220px] lg:min-h-0 bg-black">
-              <img
-                src="/images/design/dining_exact_upscaled.jpg"
-                alt="Featured Project: Bespoke Dining Room"
-                className="w-full h-full object-cover group-hover:scale-103 transition-transform duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-              
-              {/* Bottom Play Button: Watch Our Work */}
-              <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6">
-                <button
-                  onClick={() => setVideoModalOpen(true)}
-                  className="bg-black/60 hover:bg-black/80 text-white px-4 py-2.5 rounded-full flex items-center space-x-3 transition-all backdrop-blur-md border border-white/20 cursor-pointer"
-                >
-                  <div className="w-6 h-6 rounded-full bg-[#C86B4C] flex items-center justify-center text-white shrink-0">
-                    <Play className="w-3 h-3 fill-current ml-0.5" />
-                  </div>
-                  <span className="text-xs font-medium tracking-wide">
-                    Watch Our Work
-                  </span>
-                </button>
-              </div>
-            </div>
-
-            {/* Right Row of 3 Cards (Span 7) */}
-            <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-3.5 sm:gap-4.5">
-              {interiorWorks.slice(0, 3).map((work) => (
-                <Link
-                  key={work.title}
-                  to={work.link}
-                  className="group relative aspect-[1.3/1] rounded-xl overflow-hidden shadow-xs border border-[#E8E2D8] bg-stone-900"
-                >
-                  <img
-                    src={work.image}
-                    alt={work.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
-                  <div className="absolute inset-x-0 bottom-0 p-3 sm:p-3.5 flex items-center justify-between">
-                    <h4 className="font-poppins text-xs sm:text-[13px] md:text-sm font-medium text-white leading-tight">
-                      {work.title}
-                    </h4>
-                    <ArrowRight className="w-3.5 h-3.5 text-white/80 group-hover:text-white group-hover:translate-x-1 transition-all shrink-0 ml-1" />
-                  </div>
-                </Link>
-              ))}
+          {/* Featured Project Showcase (Full Width Grand Banner) */}
+          <div className="w-full relative aspect-[2.2/1] sm:aspect-[2.6/1] lg:aspect-[3/1] min-h-[240px] sm:min-h-[300px] max-h-[440px] rounded-xl sm:rounded-2xl overflow-hidden shadow-xs border border-[#E8E2D8] group bg-black">
+            <img
+              src="/images/design/dining_exact_upscaled.jpg"
+              alt="Featured Project: Bespoke Dining Room"
+              className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-700"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+            
+            {/* Bottom Play Button: Watch Our Work */}
+            <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6">
+              <button
+                onClick={() => setVideoModalOpen(true)}
+                className="bg-black/60 hover:bg-black/80 text-white px-4 py-2.5 rounded-full flex items-center space-x-3 transition-all backdrop-blur-md border border-white/20 cursor-pointer"
+              >
+                <div className="w-6 h-6 rounded-full bg-[#C86B4C] flex items-center justify-center text-white shrink-0">
+                  <Play className="w-3 h-3 fill-current ml-0.5" />
+                </div>
+                <span className="text-xs font-medium tracking-wide">
+                  Watch Our Work
+                </span>
+              </button>
             </div>
           </div>
-
           {/* Bottom Section: 5 Category Cards (from Second Image) */}
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 lg:gap-5 mt-6 sm:mt-7 pt-6 border-t border-[#E8E2D8]/70">
             {featuredCategories.map((cat) => (
