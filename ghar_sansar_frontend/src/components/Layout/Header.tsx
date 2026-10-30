@@ -135,6 +135,8 @@ const Header: React.FC = () => {
     { path: "/blog", label: "Blog" },
   ];
 
+  const isHomeTop = location.pathname === "/" && !isScrolled;
+
   return (
     <>
       <header
@@ -144,7 +146,9 @@ const Header: React.FC = () => {
       >
         <div
           className={`w-full transition-all duration-300 ${
-            isScrolled
+            isHomeTop
+              ? "bg-transparent border-b border-transparent"
+              : isScrolled
               ? "bg-[#FAF7F2]/95 backdrop-blur-md shadow-xs border-b border-[#E8E2D8]"
               : "bg-[#FAF7F2]/90 backdrop-blur-xs border-b border-[#E8E2D8]/60"
           }`}
@@ -152,7 +156,7 @@ const Header: React.FC = () => {
           <div className="w-full max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-14 h-18 sm:h-20 flex items-center justify-between">
             {/* 1. Left: Brand Logo */}
             <div className="flex items-center shrink-0">
-              <GharSansarLogo variant="dark" />
+              <GharSansarLogo variant={isHomeTop ? "light" : "dark"} />
             </div>
 
             {/* 2. Center: Refined Editorial Navigation */}
@@ -168,13 +172,17 @@ const Header: React.FC = () => {
                     to={link.path}
                     className={`relative py-1 transition-colors duration-200 ${
                       active
-                        ? "text-gray-950 font-semibold"
-                        : "text-gray-600 hover:text-[#C57053]"
+                        ? isHomeTop
+                          ? "text-white font-semibold"
+                          : "text-gray-950 font-semibold"
+                        : isHomeTop
+                        ? "text-white/80 hover:text-white"
+                        : "text-gray-600 hover:text-[#C86B4C]"
                     }`}
                   >
                     <span>{link.label}</span>
                     {active && (
-                      <span className="absolute -bottom-1.5 left-0 right-0 h-[1.5px] bg-[#C57053] rounded-full" />
+                      <span className="absolute -bottom-1.5 left-0 right-0 h-[2px] bg-[#C86B4C] rounded-full" />
                     )}
                   </Link>
                 );
@@ -190,21 +198,27 @@ const Header: React.FC = () => {
                   onSubmit={onSearchSubmit}
                   className="flex items-center relative"
                 >
-                  <div className="flex items-center w-36 lg:w-44 h-8 rounded-full px-3 transition-all bg-white/70 hover:bg-white border border-[#E2DDD5] text-gray-800 shadow-2xs">
+                  <div
+                    className={`flex items-center w-40 lg:w-48 h-8 rounded-full px-3 transition-all ${
+                      isHomeTop
+                        ? "bg-white/85 hover:bg-white text-gray-800 shadow-sm border border-white/30"
+                        : "bg-white text-gray-800 border border-[#E2DDD5] shadow-2xs"
+                    }`}
+                  >
                     <input
                       type="search"
-                      placeholder="Search..."
+                      placeholder="Search products..."
                       value={searchTerm}
                       onChange={(e) => updateSearchTerm(e.target.value)}
                       onFocus={() => {
                         if (suggestions.length > 0) setShowSuggestions(true);
                       }}
-                      className="w-full bg-transparent text-xs font-normal text-gray-800 placeholder:text-gray-400 focus:outline-none"
+                      className="w-full bg-transparent text-xs font-normal text-gray-800 placeholder:text-gray-500 focus:outline-none"
                     />
                     <button
                       type="submit"
                       aria-label="Submit search"
-                      className="text-gray-500 hover:text-[#C57053] ml-1 cursor-pointer transition-colors"
+                      className="text-gray-500 hover:text-[#C86B4C] ml-1 cursor-pointer transition-colors"
                     >
                       <Search className="w-3.5 h-3.5" />
                     </button>
@@ -217,7 +231,7 @@ const Header: React.FC = () => {
                         <button
                           key={idx}
                           type="button"
-                          className="w-full text-left px-4 py-1.5 text-xs font-medium text-gray-700 hover:bg-[#FAF7F2] hover:text-[#C57053] transition-colors cursor-pointer"
+                          className="w-full text-left px-4 py-1.5 text-xs font-medium text-gray-700 hover:bg-[#FAF7F2] hover:text-[#C86B4C] transition-colors cursor-pointer"
                           onClick={() => onSuggestionSelect(s)}
                         >
                           {s}
@@ -234,45 +248,55 @@ const Header: React.FC = () => {
                   <button
                     onClick={() => setUserMenuOpen((v) => !v)}
                     aria-label="User profile"
-                    className="w-8 h-8 rounded-full flex items-center justify-center text-gray-700 hover:text-[#C57053] transition-colors cursor-pointer"
+                    className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors cursor-pointer ${
+                      isHomeTop
+                        ? "text-white/90 hover:text-white"
+                        : "text-gray-700 hover:text-[#C86B4C]"
+                    }`}
                   >
                     <User className="w-4 h-4" />
                   </button>
-                  {isUserMenuOpen && (
-                    <div className="absolute right-0 mt-2 w-52 bg-white border border-[#E8E2D5] rounded-xl shadow-xl p-2 z-50">
-                      <div className="px-3 py-2 border-b border-gray-100 mb-1">
-                        <p className="text-[10px] text-gray-400 font-bold uppercase tracking-wider">
-                          Signed in as
-                        </p>
-                        <p className="text-xs font-bold text-gray-900 truncate">
-                          {user.email || user.name}
-                        </p>
-                      </div>
-                      <Link
-                        to="/profile"
-                        className="block px-3 py-1.5 text-xs font-medium text-gray-700 hover:bg-[#FAF7F2] hover:text-[#C57053] rounded-lg transition-colors"
-                        onClick={() => setUserMenuOpen(false)}
-                      >
-                        Profile
-                      </Link>
-                      <button
-                        onClick={() => {
-                          logout();
-                          navigate("/");
-                        }}
-                        className="w-full flex items-center px-3 py-1.5 text-xs font-medium text-red-600 hover:bg-red-50 rounded-lg transition-colors mt-1 cursor-pointer"
-                      >
-                        <LogOut className="mr-2 w-3.5 h-3.5" />
-                        Logout
-                      </button>
+                  <div
+                    className={`absolute right-0 mt-2 w-52 bg-white border border-[#E8E2D5] rounded-xl shadow-xl p-2 z-50 ${
+                      isUserMenuOpen ? "block" : "hidden"
+                    }`}
+                  >
+                    <div className="px-3 py-2 border-b border-gray-100 mb-1">
+                      <p className="text-[10px] text-gray-400 font-bold uppercase tracking-wider">
+                        Signed in as
+                      </p>
+                      <p className="text-xs font-bold text-gray-900 truncate">
+                        {user.email || user.name}
+                      </p>
                     </div>
-                  )}
+                    <Link
+                      to="/profile"
+                      className="block px-3 py-1.5 text-xs font-medium text-gray-700 hover:bg-[#FAF7F2] hover:text-[#C86B4C] rounded-lg transition-colors"
+                      onClick={() => setUserMenuOpen(false)}
+                    >
+                      Profile
+                    </Link>
+                    <button
+                      onClick={() => {
+                        logout();
+                        navigate("/");
+                      }}
+                      className="w-full flex items-center px-3 py-1.5 text-xs font-medium text-red-600 hover:bg-red-50 rounded-lg transition-colors mt-1 cursor-pointer"
+                    >
+                      <LogOut className="mr-2 w-3.5 h-3.5" />
+                      Logout
+                    </button>
+                  </div>
                 </div>
               ) : (
                 <Link
                   to="/login"
                   aria-label="Sign In"
-                  className="w-8 h-8 rounded-full flex items-center justify-center text-gray-700 hover:text-[#C57053] transition-colors"
+                  className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors ${
+                    isHomeTop
+                      ? "text-white/90 hover:text-white"
+                      : "text-gray-700 hover:text-[#C86B4C]"
+                  }`}
                 >
                   <User className="w-4 h-4" />
                 </Link>
@@ -282,11 +306,15 @@ const Header: React.FC = () => {
               <Link
                 to="/products"
                 aria-label="Wishlist"
-                className="w-8 h-8 rounded-full flex items-center justify-center text-gray-700 hover:text-[#C57053] transition-colors relative"
+                className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors relative ${
+                  isHomeTop
+                    ? "text-white/90 hover:text-white"
+                    : "text-gray-700 hover:text-[#C86B4C]"
+                }`}
               >
                 <Heart className="w-4 h-4" />
                 {wishlist.length > 0 && (
-                  <span className="absolute top-0.5 right-0.5 w-3.5 h-3.5 rounded-full bg-[#C57053] text-white text-[8.5px] font-bold flex items-center justify-center">
+                  <span className="absolute top-0.5 right-0.5 w-3.5 h-3.5 rounded-full bg-[#C86B4C] text-white text-[8.5px] font-bold flex items-center justify-center">
                     {wishlist.length}
                   </span>
                 )}
@@ -296,19 +324,27 @@ const Header: React.FC = () => {
               <Link
                 to="/cart"
                 aria-label="Shopping Cart"
-                className="w-8 h-8 rounded-full flex items-center justify-center text-gray-700 hover:text-[#C57053] transition-colors relative"
+                className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors relative ${
+                  isHomeTop
+                    ? "text-white/90 hover:text-white"
+                    : "text-gray-700 hover:text-[#C86B4C]"
+                }`}
               >
                 <ShoppingCart className="w-4 h-4" />
-                <span className="absolute top-0.5 right-0.5 w-3.5 h-3.5 rounded-full bg-[#C57053] text-white text-[8.5px] font-bold flex items-center justify-center shadow-xs">
+                <span className="absolute top-0.5 right-0.5 w-3.5 h-3.5 rounded-full bg-[#C86B4C] text-white text-[8.5px] font-bold flex items-center justify-center shadow-xs">
                   {totalItems || 0}
                 </span>
               </Link>
 
-              {/* Mobile Hamburger Menu Toggle */}
+              {/* Menu Toggle (Mobile & Desktop Hamburger as shown in mockup) */}
               <button
                 aria-label="Toggle navigation menu"
                 onClick={() => setMenuOpen((v) => !v)}
-                className="lg:hidden w-8 h-8 rounded-full flex items-center justify-center text-gray-700 hover:text-[#C57053] transition-colors"
+                className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors cursor-pointer ${
+                  isHomeTop
+                    ? "text-white/90 hover:text-white"
+                    : "text-gray-700 hover:text-[#C86B4C]"
+                }`}
               >
                 {isMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
               </button>

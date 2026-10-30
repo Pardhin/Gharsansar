@@ -29,17 +29,17 @@ const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="bg-[#181513] text-[#E8E2D8] border-t border-[#2A2420] font-sans">
-      <div className="w-full max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-14 pt-16 sm:pt-20 pb-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-12 border-b border-[#2A2420]">
+    <footer className="bg-[#FAF7F2] text-gray-800 border-t border-[#E8E2D8] font-sans">
+      <div className="w-full max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-14 pt-14 sm:pt-16 pb-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-8 pb-10 border-b border-[#E8E2D8]">
           
           {/* Column 1: Brand & Socials (Span 4) */}
-          <div className="lg:col-span-4 flex flex-col pr-0 lg:pr-6">
-            <div className="mb-4">
-              <GharSansarLogo variant="light" />
+          <div className="lg:col-span-3 xl:col-span-3 flex flex-col pr-0 lg:pr-4">
+            <div className="mb-3.5">
+              <GharSansarLogo variant="dark" />
             </div>
-            <p className="text-[#A8A095] text-xs sm:text-[13px] leading-relaxed mb-6 font-normal max-w-sm">
-              Transforming homes with bespoke collections, award-winning interior design, and turnkey execution across Andhra Pradesh &amp; Telangana.
+            <p className="text-gray-600 text-xs sm:text-[13px] leading-relaxed mb-5 font-normal max-w-xs">
+              Transforming homes with premium products and professional interior design services.
             </p>
             {/* Social Icons: Minimalist circular outlines */}
             <div className="flex items-center space-x-2.5">
@@ -48,7 +48,7 @@ const Footer: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
-                className="w-8 h-8 rounded-full border border-stone-700/60 text-[#A8A095] hover:text-white hover:border-[#C57053] hover:bg-[#C57053] flex items-center justify-center transition-all duration-200"
+                className="w-8 h-8 rounded-full border border-gray-300 text-gray-600 hover:text-white hover:border-[#C86B4C] hover:bg-[#C86B4C] flex items-center justify-center transition-all duration-200"
               >
                 <Instagram className="w-3.5 h-3.5" />
               </a>
@@ -57,7 +57,7 @@ const Footer: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
-                className="w-8 h-8 rounded-full border border-stone-700/60 text-[#A8A095] hover:text-white hover:border-[#C57053] hover:bg-[#C57053] flex items-center justify-center transition-all duration-200"
+                className="w-8 h-8 rounded-full border border-gray-300 text-gray-600 hover:text-white hover:border-[#C86B4C] hover:bg-[#C86B4C] flex items-center justify-center transition-all duration-200"
               >
                 <Facebook className="w-3.5 h-3.5" />
               </a>
@@ -66,7 +66,7 @@ const Footer: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="YouTube"
-                className="w-8 h-8 rounded-full border border-stone-700/60 text-[#A8A095] hover:text-white hover:border-[#C57053] hover:bg-[#C57053] flex items-center justify-center transition-all duration-200"
+                className="w-8 h-8 rounded-full border border-gray-300 text-gray-600 hover:text-white hover:border-[#C86B4C] hover:bg-[#C86B4C] flex items-center justify-center transition-all duration-200"
               >
                 <Youtube className="w-3.5 h-3.5" />
               </a>
@@ -75,7 +75,7 @@ const Footer: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Pinterest"
-                className="w-8 h-8 rounded-full border border-stone-700/60 text-[#A8A095] hover:text-white hover:border-[#C57053] hover:bg-[#C57053] flex items-center justify-center transition-all duration-200"
+                className="w-8 h-8 rounded-full border border-gray-300 text-gray-600 hover:text-white hover:border-[#C86B4C] hover:bg-[#C86B4C] flex items-center justify-center transition-all duration-200"
               >
                 <span className="font-serif font-bold text-xs">P</span>
               </a>
@@ -84,37 +84,37 @@ const Footer: React.FC = () => {
 
           {/* Column 2: EXPLORE (Span 2) */}
           <div className="lg:col-span-2">
-            <h4 className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#C57053] mb-4">
+            <h4 className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#C86B4C] mb-3.5 font-sans">
               Explore
             </h4>
-            <ul className="space-y-2.5 text-xs sm:text-[13px] text-[#A8A095] font-normal">
+            <ul className="space-y-2 text-xs sm:text-[13px] text-gray-650 font-normal">
               <li>
-                <Link to="/" className="hover:text-white transition-colors">
+                <Link to="/" className="hover:text-[#C86B4C] transition-colors">
                   Home
                 </Link>
               </li>
               <li>
-                <Link to="/interior-design" className="hover:text-white transition-colors">
+                <Link to="/interior-design" className="hover:text-[#C86B4C] transition-colors">
                   Interior Design
                 </Link>
               </li>
               <li>
-                <Link to="/products" className="hover:text-white transition-colors">
+                <Link to="/products" className="hover:text-[#C86B4C] transition-colors">
                   Products
                 </Link>
               </li>
               <li>
-                <Link to="/return-gifts" className="hover:text-white transition-colors">
+                <Link to="/return-gifts" className="hover:text-[#C86B4C] transition-colors">
                   Festive Gifts
                 </Link>
               </li>
               <li>
-                <Link to="/services" className="hover:text-white transition-colors">
+                <Link to="/services" className="hover:text-[#C86B4C] transition-colors">
                   Services
                 </Link>
               </li>
               <li>
-                <Link to="/blog" className="hover:text-white transition-colors">
+                <Link to="/blog" className="hover:text-[#C86B4C] transition-colors">
                   Blog
                 </Link>
               </li>
@@ -123,83 +123,85 @@ const Footer: React.FC = () => {
 
           {/* Column 3: SUPPORT (Span 2) */}
           <div className="lg:col-span-2">
-            <h4 className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#C57053] mb-4">
+            <h4 className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#C86B4C] mb-3.5 font-sans">
               Support
             </h4>
-            <ul className="space-y-2.5 text-xs sm:text-[13px] text-[#A8A095] font-normal">
+            <ul className="space-y-2 text-xs sm:text-[13px] text-gray-650 font-normal">
               <li>
-                <Link to="/my-orders" className="hover:text-white transition-colors">
+                <Link to="/my-orders" className="hover:text-[#C86B4C] transition-colors">
                   Track Order
                 </Link>
               </li>
               <li>
-                <Link to="/privacy-policy" className="hover:text-white transition-colors">
+                <Link to="/privacy-policy" className="hover:text-[#C86B4C] transition-colors">
                   Returns &amp; Refunds
                 </Link>
               </li>
               <li>
-                <Link to="/privacy-policy" className="hover:text-white transition-colors">
+                <Link to="/privacy-policy" className="hover:text-[#C86B4C] transition-colors">
                   Shipping Policy
                 </Link>
               </li>
               <li>
-                <Link to="/privacy-policy" className="hover:text-white transition-colors">
+                <Link to="/privacy-policy" className="hover:text-[#C86B4C] transition-colors">
                   Terms &amp; Conditions
                 </Link>
               </li>
               <li>
-                <Link to="/privacy-policy" className="hover:text-white transition-colors">
+                <Link to="/privacy-policy" className="hover:text-[#C86B4C] transition-colors">
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link to="/services" className="hover:text-white transition-colors">
+                <Link to="/services" className="hover:text-[#C86B4C] transition-colors">
                   Contact Us
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Column 4: CONTACT US (Span 4) */}
-          <div className="lg:col-span-4">
-            <h4 className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#C57053] mb-4">
+          {/* Column 4: CONTACT US (Span 3) */}
+          <div className="lg:col-span-3">
+            <h4 className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#C86B4C] mb-3.5 font-sans">
               Contact Us
             </h4>
-            <ul className="space-y-3 text-xs sm:text-[13px] text-[#A8A095]">
+            <ul className="space-y-2.5 text-xs text-gray-650">
               <li className="flex items-start space-x-2.5">
-                <MapPin className="w-4 h-4 text-[#C57053] shrink-0 mt-0.5" />
+                <MapPin className="w-4 h-4 text-[#C86B4C] shrink-0 mt-0.5" />
                 <span className="leading-relaxed">
-                  D.No. 27-3-68, Near Buckingham Post Office, Rajalakshmi School,
+                  D.No. 27-3-68, Near Buckingham Post Office, Rajulakshmi School,
                   Governorpet-520002, Vijayawada, Andhra Pradesh
                 </span>
               </li>
               <li className="flex items-center space-x-2.5">
-                <Phone className="w-4 h-4 text-[#C57053] shrink-0" />
+                <Phone className="w-4 h-4 text-[#C86B4C] shrink-0" />
                 <a
                   href="tel:+919701990090"
-                  className="hover:text-white transition-colors font-medium text-[#E8E2D8]"
+                  className="hover:text-[#C86B4C] transition-colors font-medium text-gray-800"
                 >
                   +91 9701990090
                 </a>
               </li>
               <li className="flex items-center space-x-2.5">
-                <Mail className="w-4 h-4 text-[#C57053] shrink-0" />
+                <Mail className="w-4 h-4 text-[#C86B4C] shrink-0" />
                 <a
                   href="mailto:gharsansarvij@gmail.com"
-                  className="hover:text-white transition-colors text-[#E8E2D8]"
+                  className="hover:text-[#C86B4C] transition-colors text-gray-800"
                 >
-                  gharsansarvij@gmail.com
+                  gharsansarvj@gmail.com
                 </a>
               </li>
             </ul>
+          </div>
 
-            {/* Newsletter Subscription */}
-            <div className="mt-6 pt-5 border-t border-[#2A2420]">
-              <h5 className="text-xs font-serif font-medium text-white mb-1.5">
+          {/* Column 5: Newsletter Subscription (Span 2) */}
+          <div className="lg:col-span-2 flex flex-col justify-between">
+            <div>
+              <h4 className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#C86B4C] mb-3.5 font-sans">
                 Join Our Newsletter
-              </h5>
-              <p className="text-[11px] text-[#A8A095] mb-3 leading-relaxed">
-                Get latest design updates, seasonal offers, and interior inspiration.
+              </h4>
+              <p className="text-xs text-gray-650 mb-3.5 leading-relaxed font-normal">
+                Get latest updates, offers and interior inspiration.
               </p>
               <form onSubmit={handleSubscribe} className="relative flex items-center">
                 <input
@@ -207,13 +209,13 @@ const Footer: React.FC = () => {
                   placeholder="Enter your email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full bg-[#221E1B] border border-[#332D28] rounded-full pl-4 pr-11 py-2.5 text-xs text-white placeholder:text-stone-500 focus:outline-none focus:border-[#C57053] transition-all"
+                  className="w-full bg-white border border-[#DCD5C9] rounded-full pl-3.5 pr-10 py-2 text-xs text-gray-800 placeholder:text-gray-400 focus:outline-none focus:border-[#C86B4C] transition-all shadow-2xs"
                   required
                 />
                 <button
                   type="submit"
                   aria-label="Subscribe to newsletter"
-                  className="absolute right-1 w-8 h-8 rounded-full bg-[#C57053] hover:bg-[#B35E42] text-white flex items-center justify-center transition-colors shadow-xs"
+                  className="absolute right-1 w-7 h-7 rounded-full bg-[#C86B4C] hover:bg-[#B35E42] text-white flex items-center justify-center transition-colors shadow-2xs cursor-pointer"
                 >
                   {subscribed ? (
                     <CheckCircle className="w-3.5 h-3.5 text-white" />
@@ -227,18 +229,18 @@ const Footer: React.FC = () => {
         </div>
 
         {/* Bottom Sub-bar */}
-        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between text-[11px] sm:text-xs text-[#7A7268] gap-3">
+        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between text-[11px] sm:text-xs text-gray-500 gap-3">
           <p>© 2026 Ghar Sansar. All rights reserved.</p>
           <div className="flex items-center space-x-4 sm:space-x-6">
-            <Link to="/privacy-policy" className="hover:text-white transition-colors">
+            <Link to="/privacy-policy" className="hover:text-[#C86B4C] transition-colors">
               Privacy Policy
             </Link>
-            <span>•</span>
-            <Link to="/privacy-policy" className="hover:text-white transition-colors">
+            <span>|</span>
+            <Link to="/privacy-policy" className="hover:text-[#C86B4C] transition-colors">
               Terms &amp; Conditions
             </Link>
-            <span>•</span>
-            <Link to="/privacy-policy" className="hover:text-white transition-colors">
+            <span>|</span>
+            <Link to="/privacy-policy" className="hover:text-[#C86B4C] transition-colors">
               Shipping Policy
             </Link>
           </div>
