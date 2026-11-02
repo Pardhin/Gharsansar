@@ -37,6 +37,8 @@ const Header: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [suggestions, setSuggestions] = useState<string[]>([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const searchInputRef = useRef<HTMLInputElement>(null);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const lastScrollY = useRef(0);
@@ -62,6 +64,7 @@ const Header: React.FC = () => {
     setMenuOpen(false);
     setUserMenuOpen(false);
     setShowSuggestions(false);
+    setIsSearchOpen(false);
   }, [location.pathname]);
 
   useEffect(() => {
@@ -71,6 +74,9 @@ const Header: React.FC = () => {
         !desktopSearchRef.current.contains(event.target as Node)
       ) {
         setShowSuggestions(false);
+        if (!searchTerm.trim()) {
+          setIsSearchOpen(false);
+        }
       }
       if (
         userMenuRef.current &&
@@ -107,6 +113,7 @@ const Header: React.FC = () => {
   const onSuggestionSelect = (value: string) => {
     setSearchTerm(value);
     setShowSuggestions(false);
+    setIsSearchOpen(false);
     navigate(`/interior-design?category=${encodeURIComponent(value)}`);
   };
 
@@ -116,6 +123,7 @@ const Header: React.FC = () => {
     navigate(`/interior-design?category=${encodeURIComponent(searchTerm.trim())}`);
     setSearchTerm("");
     setShowSuggestions(false);
+    setIsSearchOpen(false);
   };
 
   const navLinks = [
@@ -127,29 +135,23 @@ const Header: React.FC = () => {
     { path: "/blog", label: "Blog" },
   ];
 
-  const isHomeTop = location.pathname === "/" && !isScrolled;
+  const isHomeTop = false; // Navbar is white everywhere, non-transparent
 
   return (
     <>
       <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
         <div
-          className={`w-full transition-all duration-300 ${
-            isHomeTop
-              ? "bg-transparent border-b border-transparent"
-              : isScrolled
-              ? "bg-[#FAF7F2]/95 backdrop-blur-md shadow-xs border-b border-[#E8E2D8]"
-              : "bg-[#FAF7F2]/90 backdrop-blur-xs border-b border-[#E8E2D8]/60"
-          }`}
+          className="w-full transition-all duration-300 bg-[#F6F1E8]/95 backdrop-blur-md"
         >
-          <div className="w-full max-w-[1600px] mx-auto px-5 sm:px-8 lg:px-12 h-14 sm:h-16 relative flex items-center justify-between">
+          <div className="w-full max-w-[1720px] mx-auto px-5 sm:px-8 lg:px-10 xl:px-12 h-12 flex items-center justify-between">
             {/* 1. Left: Brand Logo */}
-            <div className="flex items-center shrink-0 z-10">
-              <GharSansarLogo variant={isHomeTop ? "light" : "dark"} />
+            <div className="flex items-center shrink-0">
+              <GharSansarLogo variant="dark" />
             </div>
 
-            {/* 2. Center: Absolutely Centered Navigation */}
+            {/* 2. Center: Perfectly Balanced Navigation */}
             <nav
-              className="hidden lg:flex items-center space-x-6 xl:space-x-8 text-[11.5px] font-medium tracking-[0.12em] uppercase font-sans absolute left-1/2 -translate-x-1/2"
+              className="hidden lg:flex flex-1 items-center justify-center space-x-6 xl:space-x-8 font-poppins text-[12px] xl:text-[12.5px] font-medium tracking-[0.14em] uppercase"
               role="navigation"
             >
               {navLinks.map((link) => {
@@ -158,18 +160,14 @@ const Header: React.FC = () => {
                   <Link
                     key={link.path}
                     to={link.path}
-                    className={`relative py-1 px-3 rounded-full transition-all duration-200 ${
+                    className={`relative py-0.5 px-1 transition-colors duration-200 ${
                       active
-                        ? isHomeTop
-                          ? "text-white font-bold bg-white/20 backdrop-blur-xs shadow-xs"
-                          : "text-gray-950 font-semibold"
-                        : isHomeTop
-                        ? "text-white/90 hover:text-white hover:bg-white/10"
+                        ? "text-gray-950 font-semibold"
                         : "text-gray-600 hover:text-[#C86B4C]"
                     }`}
                   >
                     <span>{link.label}</span>
-                    {active && !isHomeTop && (
+                    {active && (
                       <span className="absolute -bottom-1 left-0 right-0 h-[2px] bg-[#C86B4C] rounded-full" />
                     )}
                   </Link>
@@ -178,56 +176,83 @@ const Header: React.FC = () => {
             </nav>
 
             {/* 3. Right: Refined Search & Action Icons */}
-            <div className="flex items-center space-x-2.5 sm:space-x-3.5 shrink-0 z-10">
-              {/* Compact Search Bar */}
-              <div className="relative hidden md:block">
-                <form
-                  ref={desktopSearchRef}
-                  onSubmit={onSearchSubmit}
-                  className="flex items-center relative"
-                >
-                  <div
-                    className={`flex items-center w-38 lg:w-44 h-[32px] sm:h-[34px] rounded-full px-3 transition-all ${
-                      isHomeTop
-                        ? "bg-white/85 hover:bg-white text-gray-800 shadow-sm border border-white/30"
-                        : "bg-white text-gray-800 border border-[#E2DDD5] shadow-2xs"
-                    }`}
+            <div className="flex items-center space-x-1.5 sm:space-x-2 shrink-0">
+              {/* Expandable Search Bar on Symbol Click */}
+              <div className="relative flex items-center">
+                {!isSearchOpen ? (
+                  <button
+                    type="button"
+                    aria-label="Open search"
+                    onClick={() => {
+                      setIsSearchOpen(true);
+                      setTimeout(() => searchInputRef.current?.focus(), 60);
+                    }}
+                    className="w-8 h-8 rounded-full flex items-center justify-center text-gray-700 hover:text-[#C86B4C] hover:bg-[#F6F1E8] transition-colors cursor-pointer"
                   >
-                    <input
-                      type="search"
-                      placeholder="Search products..."
-                      value={searchTerm}
-                      onChange={(e) => updateSearchTerm(e.target.value)}
-                      onFocus={() => {
-                        if (suggestions.length > 0) setShowSuggestions(true);
-                      }}
-                      className="w-full bg-transparent text-xs font-normal text-gray-800 placeholder:text-gray-500 focus:outline-none"
-                    />
-                    <button
-                      type="submit"
-                      aria-label="Submit search"
-                      className="text-gray-500 hover:text-[#C86B4C] ml-1 cursor-pointer transition-colors"
-                    >
-                      <Search className="w-3.5 h-3.5" />
-                    </button>
-                  </div>
-
-                  {/* Suggestions dropdown */}
-                  {showSuggestions && suggestions.length > 0 && (
-                    <div className="absolute top-full right-0 mt-2 w-56 bg-white/95 backdrop-blur-md border border-[#E8E2D5] rounded-xl shadow-xl py-2 z-50 overflow-hidden">
-                      {suggestions.map((s, idx) => (
-                        <button
-                          key={idx}
-                          type="button"
-                          className="w-full text-left px-4 py-1.5 text-xs font-medium text-gray-700 hover:bg-[#FAF7F2] hover:text-[#C86B4C] transition-colors cursor-pointer"
-                          onClick={() => onSuggestionSelect(s)}
-                        >
-                          {s}
-                        </button>
-                      ))}
+                    <Search className="w-[18px] h-[18px]" />
+                  </button>
+                ) : (
+                  <form
+                    ref={desktopSearchRef}
+                    onSubmit={onSearchSubmit}
+                    className="flex items-center relative transition-all duration-300"
+                  >
+                    <div className="flex items-center w-48 sm:w-52 h-[32px] rounded-full px-3 bg-[#F6F1E8] text-gray-800 border border-[#E2DDD5] shadow-xs">
+                      <input
+                        ref={searchInputRef}
+                        type="search"
+                        placeholder="Search products..."
+                        value={searchTerm}
+                        onChange={(e) => updateSearchTerm(e.target.value)}
+                        onFocus={() => {
+                          if (suggestions.length > 0) setShowSuggestions(true);
+                        }}
+                        onKeyDown={(e) => {
+                          if (e.key === "Escape") {
+                            setIsSearchOpen(false);
+                            setShowSuggestions(false);
+                          }
+                        }}
+                        className="w-full bg-transparent text-xs font-normal text-gray-800 placeholder:text-gray-400 focus:outline-none"
+                      />
+                      <button
+                        type="submit"
+                        aria-label="Submit search"
+                        className="text-gray-500 hover:text-[#C86B4C] ml-1 cursor-pointer transition-colors"
+                      >
+                        <Search className="w-3.5 h-3.5" />
+                      </button>
+                      <button
+                        type="button"
+                        aria-label="Close search"
+                        onClick={() => {
+                          setIsSearchOpen(false);
+                          setShowSuggestions(false);
+                          setSearchTerm("");
+                        }}
+                        className="text-gray-400 hover:text-gray-700 ml-1.5 cursor-pointer transition-colors"
+                      >
+                        <X className="w-3.5 h-3.5" />
+                      </button>
                     </div>
-                  )}
-                </form>
+
+                    {/* Suggestions dropdown */}
+                    {showSuggestions && suggestions.length > 0 && (
+                      <div className="absolute top-full right-0 mt-2 w-56 bg-[#F6F1E8] border border-[#E8E2D5] rounded-xl shadow-xl py-2 z-50 overflow-hidden">
+                        {suggestions.map((s, idx) => (
+                          <button
+                            key={idx}
+                            type="button"
+                            className="w-full text-left px-4 py-1.5 text-xs font-medium text-gray-700 hover:bg-[#F6F1E8] hover:text-[#C86B4C] transition-colors cursor-pointer"
+                            onClick={() => onSuggestionSelect(s)}
+                          >
+                            {s}
+                          </button>
+                        ))}
+                      </div>
+                    )}
+                  </form>
+                )}
               </div>
 
               {/* Profile Icon */}
@@ -236,16 +261,12 @@ const Header: React.FC = () => {
                   <button
                     onClick={() => setUserMenuOpen((v) => !v)}
                     aria-label="User profile"
-                    className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors cursor-pointer ${
-                      isHomeTop
-                        ? "text-white/90 hover:text-white"
-                        : "text-gray-700 hover:text-[#C86B4C]"
-                    }`}
+                    className="w-8 h-8 rounded-full flex items-center justify-center text-gray-700 hover:text-[#C86B4C] hover:bg-[#F6F1E8] transition-colors cursor-pointer"
                   >
-                    <User className="w-4 h-4" />
+                    <User className="w-[18px] h-[18px]" />
                   </button>
                   <div
-                    className={`absolute right-0 mt-2 w-52 bg-white border border-[#E8E2D5] rounded-xl shadow-xl p-2 z-50 ${
+                    className={`absolute right-0 mt-2 w-52 bg-[#F6F1E8] border border-[#E8E2D5] rounded-xl shadow-xl p-2 z-50 ${
                       isUserMenuOpen ? "block" : "hidden"
                     }`}
                   >
@@ -259,7 +280,7 @@ const Header: React.FC = () => {
                     </div>
                     <Link
                       to="/profile"
-                      className="block px-3 py-1.5 text-xs font-medium text-gray-700 hover:bg-[#FAF7F2] hover:text-[#C86B4C] rounded-lg transition-colors"
+                      className="block px-3 py-1.5 text-xs font-medium text-gray-700 hover:bg-[#F6F1E8] hover:text-[#C86B4C] rounded-lg transition-colors"
                       onClick={() => setUserMenuOpen(false)}
                     >
                       Profile
@@ -280,13 +301,9 @@ const Header: React.FC = () => {
                 <Link
                   to="/login"
                   aria-label="Sign In"
-                  className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors ${
-                    isHomeTop
-                      ? "text-white/90 hover:text-white"
-                      : "text-gray-700 hover:text-[#C86B4C]"
-                  }`}
+                  className="w-8 h-8 rounded-full flex items-center justify-center text-gray-700 hover:text-[#C86B4C] hover:bg-[#F6F1E8] transition-colors cursor-pointer"
                 >
-                  <User className="w-4 h-4" />
+                  <User className="w-[18px] h-[18px]" />
                 </Link>
               )}
 
@@ -294,47 +311,39 @@ const Header: React.FC = () => {
               <Link
                 to="/products"
                 aria-label="Wishlist"
-                className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors relative ${
-                  isHomeTop
-                    ? "text-white/90 hover:text-white"
-                    : "text-gray-700 hover:text-[#C86B4C]"
-                }`}
+                className="w-8 h-8 rounded-full flex items-center justify-center text-gray-700 hover:text-[#C86B4C] hover:bg-[#F6F1E8] transition-colors cursor-pointer"
               >
-                <Heart className="w-4 h-4" />
-                {wishlist.length > 0 && (
-                  <span className="absolute top-0.5 right-0.5 w-3.5 h-3.5 rounded-full bg-[#C86B4C] text-white text-[8.5px] font-bold flex items-center justify-center">
-                    {wishlist.length}
-                  </span>
-                )}
+                <div className="relative flex items-center justify-center">
+                  <Heart className="w-[18px] h-[18px]" />
+                  {wishlist.length > 0 && (
+                    <span className="absolute -top-1 -right-1.5 min-w-[14px] h-[14px] px-0.5 rounded-full bg-[#C86B4C] text-white text-[8.5px] font-bold flex items-center justify-center shadow-xs leading-none">
+                      {wishlist.length}
+                    </span>
+                  )}
+                </div>
               </Link>
 
               {/* Cart Icon with Small Terracotta Badge */}
               <Link
                 to="/cart"
                 aria-label="Shopping Cart"
-                className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors relative ${
-                  isHomeTop
-                    ? "text-white/90 hover:text-white"
-                    : "text-gray-700 hover:text-[#C86B4C]"
-                }`}
+                className="w-8 h-8 rounded-full flex items-center justify-center text-gray-700 hover:text-[#C86B4C] hover:bg-[#F6F1E8] transition-colors cursor-pointer"
               >
-                <ShoppingCart className="w-4 h-4" />
-                <span className="absolute top-0.5 right-0.5 w-3.5 h-3.5 rounded-full bg-[#C86B4C] text-white text-[8.5px] font-bold flex items-center justify-center shadow-xs">
-                  {totalItems || 0}
-                </span>
+                <div className="relative flex items-center justify-center">
+                  <ShoppingCart className="w-[18px] h-[18px]" />
+                  <span className="absolute -top-1 -right-1.5 min-w-[14px] h-[14px] px-0.5 rounded-full bg-[#C86B4C] text-white text-[8.5px] font-bold flex items-center justify-center shadow-xs leading-none">
+                    {totalItems || 0}
+                  </span>
+                </div>
               </Link>
 
-              {/* Menu Toggle (Mobile & Desktop Hamburger as shown in mockup) */}
+              {/* Menu Toggle */}
               <button
                 aria-label="Toggle navigation menu"
                 onClick={() => setMenuOpen((v) => !v)}
-                className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors cursor-pointer ${
-                  isHomeTop
-                    ? "text-white/90 hover:text-white"
-                    : "text-gray-700 hover:text-[#C86B4C]"
-                }`}
+                className="w-8 h-8 rounded-full flex items-center justify-center text-gray-700 hover:text-[#C86B4C] hover:bg-[#F6F1E8] transition-colors cursor-pointer"
               >
-                {isMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+                {isMenuOpen ? <X className="w-[18px] h-[18px]" /> : <Menu className="w-[18px] h-[18px]" />}
               </button>
             </div>
           </div>
@@ -357,7 +366,7 @@ const Header: React.FC = () => {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "tween", duration: 0.3 }}
-              className="fixed top-0 right-0 bottom-0 w-72 bg-[#FAF7F2] p-6 shadow-2xl flex flex-col justify-between border-l border-[#E8E2D8] z-50"
+              className="fixed top-0 right-0 bottom-0 w-72 bg-[#F6F1E8] p-6 shadow-2xl flex flex-col justify-between border-l border-[#E8E2D8] z-50"
             >
               <div>
                 <div className="flex items-center justify-between pb-6 border-b border-[#E8E2D8] mb-6">

@@ -538,11 +538,10 @@ const Home: React.FC = () => {
 
           ========================================================================= */}
 
-      <section className="relative w-full min-h-[85vh] lg:min-h-[92vh] flex items-center bg-[#181513] overflow-hidden">
-
-        {/* Full-Bleed Photography Background */}
-
-        <div className="absolute inset-0 z-0">
+      <section className="w-full pt-12 pb-2 sm:pb-2.5 lg:pb-3 px-2 sm:px-2.5 lg:px-3 bg-[#FAF7F2]">
+        <div className="relative w-full max-w-[1680px] mx-auto h-[calc(100vh-58px)] sm:h-[calc(100vh-60px)] lg:h-[calc(100vh-62px)] min-h-[460px] flex items-center bg-[#181513] rounded-none overflow-hidden border-t-0 border-x-[3px] sm:border-x-[4px] border-b-[3px] sm:border-b-[4px] border-[#F6F1E8] shadow-xl shadow-stone-900/15">
+          {/* Curved Photography Background */}
+          <div className="absolute inset-0 z-0">
 
           <motion.img
 
@@ -565,12 +564,11 @@ const Home: React.FC = () => {
           {/* Subtle Dark Gradient Overlay across Left ~50% */}
           <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/50 via-45% to-transparent" />
 
-          {/* Top subtle vignette for transparent navigation bar contrast */}
-          <div className="absolute top-0 inset-x-0 h-28 bg-gradient-to-b from-black/60 to-transparent pointer-events-none" />
+
         </div>
 
         {/* Content Container */}
-        <div className="relative z-10 w-full max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-14 pt-28 pb-12 lg:pt-36 lg:pb-14 flex flex-col justify-between min-h-[85vh] lg:min-h-[92vh]">
+        <div className="relative z-10 w-full max-w-[1600px] mx-auto px-5 sm:px-8 lg:px-12 py-6 sm:py-8 lg:py-10 flex flex-col justify-between h-full">
           {/* Main Editorial Text Area */}
           <div className="my-auto max-w-xl">
             {/* Eyebrow */}
@@ -752,6 +750,7 @@ const Home: React.FC = () => {
 
         </div>
 
+        </div>
       </section>
 
       {/* =========================================================================
