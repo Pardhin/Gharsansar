@@ -43,15 +43,7 @@ const Header: React.FC = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      setIsScrolled(currentScrollY > 20);
-
-      if (currentScrollY > lastScrollY.current && currentScrollY > 90) {
-        setIsVisible(false);
-      } else {
-        setIsVisible(true);
-      }
-      lastScrollY.current = currentScrollY;
+      setIsScrolled(window.scrollY > 20);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -139,11 +131,7 @@ const Header: React.FC = () => {
 
   return (
     <>
-      <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 transform ${
-          isVisible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
-        }`}
-      >
+      <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
         <div
           className={`w-full transition-all duration-300 ${
             isHomeTop
@@ -153,15 +141,15 @@ const Header: React.FC = () => {
               : "bg-[#FAF7F2]/90 backdrop-blur-xs border-b border-[#E8E2D8]/60"
           }`}
         >
-          <div className="w-full max-w-[1600px] mx-auto px-5 sm:px-8 lg:px-12 h-14 sm:h-16 flex items-center justify-between">
+          <div className="w-full max-w-[1600px] mx-auto px-5 sm:px-8 lg:px-12 h-14 sm:h-16 relative flex items-center justify-between">
             {/* 1. Left: Brand Logo */}
-            <div className="flex items-center shrink-0">
+            <div className="flex items-center shrink-0 z-10">
               <GharSansarLogo variant={isHomeTop ? "light" : "dark"} />
             </div>
 
-            {/* 2. Center: Refined Editorial Navigation */}
+            {/* 2. Center: Absolutely Centered Navigation */}
             <nav
-              className="hidden lg:flex items-center space-x-6 xl:space-x-8 text-[11.5px] font-medium tracking-[0.12em] uppercase font-sans"
+              className="hidden lg:flex items-center space-x-6 xl:space-x-8 text-[11.5px] font-medium tracking-[0.12em] uppercase font-sans absolute left-1/2 -translate-x-1/2"
               role="navigation"
             >
               {navLinks.map((link) => {
@@ -170,18 +158,18 @@ const Header: React.FC = () => {
                   <Link
                     key={link.path}
                     to={link.path}
-                    className={`relative py-0.5 transition-colors duration-200 ${
+                    className={`relative py-1 px-3 rounded-full transition-all duration-200 ${
                       active
                         ? isHomeTop
-                          ? "text-white font-semibold"
+                          ? "text-white font-bold bg-white/20 backdrop-blur-xs shadow-xs"
                           : "text-gray-950 font-semibold"
                         : isHomeTop
-                        ? "text-white/80 hover:text-white"
+                        ? "text-white/90 hover:text-white hover:bg-white/10"
                         : "text-gray-600 hover:text-[#C86B4C]"
                     }`}
                   >
                     <span>{link.label}</span>
-                    {active && (
+                    {active && !isHomeTop && (
                       <span className="absolute -bottom-1 left-0 right-0 h-[2px] bg-[#C86B4C] rounded-full" />
                     )}
                   </Link>
@@ -190,7 +178,7 @@ const Header: React.FC = () => {
             </nav>
 
             {/* 3. Right: Refined Search & Action Icons */}
-            <div className="flex items-center space-x-2.5 sm:space-x-3.5 shrink-0">
+            <div className="flex items-center space-x-2.5 sm:space-x-3.5 shrink-0 z-10">
               {/* Compact Search Bar */}
               <div className="relative hidden md:block">
                 <form

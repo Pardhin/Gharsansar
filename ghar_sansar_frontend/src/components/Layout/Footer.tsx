@@ -30,15 +30,15 @@ const Footer: React.FC = () => {
 
   return (
     <footer className="bg-[#FAF7F2] text-gray-800 border-t border-[#E8E2D8] font-sans">
-      <div className="w-full max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-14 pt-14 sm:pt-16 pb-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-8 pb-10 border-b border-[#E8E2D8]">
+      <div className="w-full max-w-[1600px] mx-auto px-5 sm:px-8 lg:px-12 pt-4 sm:pt-5 pb-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-8 pb-4 border-b border-[#E8E2D8]">
           
           {/* Column 1: Brand & Socials (Span 4) */}
           <div className="lg:col-span-3 xl:col-span-3 flex flex-col pr-0 lg:pr-4">
             <div className="mb-3.5">
               <GharSansarLogo variant="dark" />
             </div>
-            <p className="text-gray-600 text-xs sm:text-[13px] leading-relaxed mb-5 font-normal max-w-xs">
+            <p className="text-gray-600 text-xs leading-relaxed mb-2.5 font-normal max-w-xs">
               Transforming homes with premium products and professional interior design services.
             </p>
             {/* Social Icons: Minimalist circular outlines */}
@@ -87,7 +87,7 @@ const Footer: React.FC = () => {
             <h4 className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#C86B4C] mb-3.5 font-sans">
               Explore
             </h4>
-            <ul className="space-y-2 text-xs sm:text-[13px] text-gray-650 font-normal">
+            <ul className="space-y-1 text-xs sm:text-[13px] text-gray-650 font-normal">
               <li>
                 <Link to="/" className="hover:text-[#C86B4C] transition-colors">
                   Home
@@ -126,7 +126,7 @@ const Footer: React.FC = () => {
             <h4 className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#C86B4C] mb-3.5 font-sans">
               Support
             </h4>
-            <ul className="space-y-2 text-xs sm:text-[13px] text-gray-650 font-normal">
+            <ul className="space-y-1 text-xs sm:text-[13px] text-gray-650 font-normal">
               <li>
                 <Link to="/my-orders" className="hover:text-[#C86B4C] transition-colors">
                   Track Order
@@ -229,7 +229,7 @@ const Footer: React.FC = () => {
         </div>
 
         {/* Bottom Sub-bar */}
-        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between text-[11px] sm:text-xs text-gray-500 gap-3">
+        <div className="pt-3 flex flex-col sm:flex-row items-center justify-between text-[11px] sm:text-xs text-gray-500 gap-3">
           <p>© 2026 Ghar Sansar. All rights reserved.</p>
           <div className="flex items-center space-x-4 sm:space-x-6">
             <Link to="/privacy-policy" className="hover:text-[#C86B4C] transition-colors">
