@@ -63,6 +63,11 @@ const AppLayout = () => {
   const isAdminRoute = location.pathname.startsWith("/admin");
   const isMobileAuthRoute = location.pathname.startsWith("/mobile-auth");
   const isHomePage = location.pathname === "/";
+  const isInteriorPage = location.pathname.startsWith("/interior-design");
+  const isProductsPage = location.pathname.startsWith("/products");
+  const isGiftsPage = location.pathname.startsWith("/return-gifts");
+  const isServicesPage = location.pathname.startsWith("/services");
+  const isBlogPage = location.pathname.startsWith("/blog");
 
   // Dedicated Mobile Auth Bridge view (clean, focused, standalone)
   if (isMobileAuthRoute) {
@@ -108,7 +113,7 @@ const AppLayout = () => {
   return (
     <div className="min-h-screen bg-[#FAF7F2]">
       <Header />
-      <main className={isHomePage ? "" : "pt-20 sm:pt-24"}>
+      <main className={isHomePage || isInteriorPage || isProductsPage || isGiftsPage || isServicesPage || isBlogPage ? "" : "pt-20 sm:pt-24"}>
         <Routes>
           {/* ---------- Public customer routes ---------- */}
           <Route path="/" element={<Home />} />

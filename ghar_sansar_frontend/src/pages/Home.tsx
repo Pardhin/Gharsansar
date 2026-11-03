@@ -773,7 +773,7 @@ const Home: React.FC = () => {
 
                 to={cat.link}
 
-                className="group flex flex-col items-center cursor-pointer text-center bg-white/75 hover:bg-white rounded-2xl p-2.5 sm:p-3 border border-[#E8E2D8]/80 hover:border-[#C86B4C]/50 shadow-xs hover:shadow-md transition-all duration-300"
+                className="group flex flex-col items-center cursor-pointer text-center bg-white hover:bg-white rounded-2xl p-2.5 sm:p-3 border border-[#E8E2D8] hover:border-[#C86B4C]/60 shadow-[0_4px_16px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_28px_rgba(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300"
 
               >
 
