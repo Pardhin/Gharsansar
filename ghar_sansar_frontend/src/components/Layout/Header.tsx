@@ -143,15 +143,15 @@ const Header: React.FC = () => {
         <div
           className="w-full transition-all duration-300 bg-[#F6F1E8]/95 backdrop-blur-md"
         >
-          <div className="w-full max-w-[1720px] mx-auto px-5 sm:px-8 lg:px-10 xl:px-12 h-12 flex items-center justify-between">
+          <div className="relative w-full max-w-[1720px] mx-auto px-5 sm:px-8 lg:px-10 xl:px-12 h-12 flex items-center justify-between">
             {/* 1. Left: Brand Logo */}
-            <div className="flex items-center shrink-0">
+            <div className="flex items-center shrink-0 z-10">
               <GharSansarLogo variant="dark" />
             </div>
 
-            {/* 2. Center: Perfectly Balanced Navigation */}
+            {/* 2. Center: True Mathematical Center Navigation */}
             <nav
-              className="hidden lg:flex flex-1 items-center justify-center space-x-6 xl:space-x-8 font-poppins text-[12px] xl:text-[12.5px] font-medium tracking-[0.14em] uppercase"
+              className="hidden lg:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center space-x-6 xl:space-x-8 font-poppins text-[12px] xl:text-[12.5px] font-medium tracking-[0.14em] uppercase"
               role="navigation"
             >
               {navLinks.map((link) => {
@@ -176,7 +176,7 @@ const Header: React.FC = () => {
             </nav>
 
             {/* 3. Right: Refined Search & Action Icons */}
-            <div className="flex items-center space-x-1.5 sm:space-x-2 shrink-0">
+            <div className="flex items-center space-x-1.5 sm:space-x-2 shrink-0 z-10">
               {/* Expandable Search Bar on Symbol Click */}
               <div className="relative flex items-center">
                 {!isSearchOpen ? (
@@ -309,7 +309,7 @@ const Header: React.FC = () => {
 
               {/* Wishlist Heart Icon */}
               <Link
-                to="/products"
+                to="/wishlist"
                 aria-label="Wishlist"
                 className="w-8 h-8 rounded-full flex items-center justify-center text-gray-700 hover:text-[#C86B4C] hover:bg-[#F6F1E8] transition-colors cursor-pointer"
               >
@@ -400,7 +400,7 @@ const Header: React.FC = () => {
 
               <div className="pt-6 border-t border-[#E8E2D8] space-y-3">
                 <Link
-                  to="/products"
+                  to="/wishlist"
                   onClick={() => setMenuOpen(false)}
                   className="flex items-center justify-between text-xs text-gray-700 hover:text-[#C57053]"
                 >
